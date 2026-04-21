@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+
 .Python
 build/
 develop-eggs/
@@ -63,3 +64,14 @@ Thumbs.db
 .project
 .pydevproject
 .settings/
+
+# Databases
+*.db
+Backend/placement.db
+
+# Local Storage
+uploads/
+Backend/uploads/
+Backend/test_resume.pdf
+Backend/ext_resume.pdf
+Backend/resume.pdf
