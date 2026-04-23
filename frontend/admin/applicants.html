@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicants List | Placement Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002366',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAFC]">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-40">
+        <div class="p-8"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><span class="material-symbols-outlined">school</span></div><span class="text-xl font-black tracking-tighter text-primary uppercase">Placement Admin</span></div></div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="dashboard.html" class="sidebar-link"><span class="material-symbols-outlined">dashboard</span><span class="font-bold">Command Center</span></a>
+            <a href="manage-jobs.html" class="sidebar-link"><span class="material-symbols-outlined">work</span><span class="font-bold">Manage Drives</span></a>
+            <a href="applicants.html" class="sidebar-link active"><span class="material-symbols-outlined">group</span><span class="font-bold">Applicants List</span></a>
+            <a href="reports.html" class="sidebar-link"><span class="material-symbols-outlined">assessment</span><span class="font-bold">Analytics Reports</span></a>
+        </nav>
+    </aside>
+
+    <div class="md:ml-72 min-h-screen">
+        <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <h1 class="text-xl font-black text-slate-900">Applicants Database</h1>
+                <span id="total-applicants-badge" class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-black rounded-full uppercase">0 Total</span>
+            </div>
+            <div class="flex gap-2">
+                <button class="p-2.5 bg-slate-50 text-slate-500 rounded-xl hover:text-primary transition-all"><span class="material-symbols-outlined">file_download</span></button>
+                <button class="p-2.5 bg-slate-50 text-slate-500 rounded-xl hover:text-primary transition-all"><span class="material-symbols-outlined">print</span></button>
+            </div>
+        </header>
+
+        <main class="p-6 md:p-10 max-w-7xl mx-auto animate-fade-in">
+            <!-- Filter Bar -->
+            <div class="card p-6 mb-8 bg-slate-50/50 border-slate-200">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                        <input type="text" placeholder="Name or ID..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary outline-none shadow-sm">
+                    </div>
+                    <select class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-primary outline-none shadow-sm">
+                        <option>All Branches</option>
+                        <option>Computer Science</option>
+                        <option>Information Tech</option>
+                        <option>Electronics</option>
+                    </select>
+                    <select class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-bold text-slate-600 focus:ring-2 focus:ring-primary outline-none shadow-sm">
+                        <option>CGPA > 7.0</option>
+                        <option>CGPA > 8.0</option>
+                        <option>CGPA > 9.0</option>
+                    </select>
+                    <button class="bg-primary text-white font-bold rounded-xl px-6 py-2.5 shadow-lg shadow-primary/10 hover:opacity-90 transition-all">Apply Filters</button>
+                </div>
+            </div>
+
+            <div class="card overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] border-b border-slate-200">
+                            <tr>
+                                <th class="px-6 py-4">Student Identity</th>
+                                <th class="px-6 py-4">Academic Stats</th>
+                                <th class="px-6 py-4">Current Status</th>
+                                <th class="px-6 py-4">Applied Drive</th>
+                                <th class="px-6 py-4 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicants-table-body" class="divide-y divide-slate-100">
+                            <!-- Data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <div class="p-6 bg-slate-50/30 border-t border-slate-100 flex items-center justify-between">
+                    <p class="text-xs font-bold text-slate-400 uppercase">Showing 1-10 of 4,892</p>
+                    <div class="flex gap-2">
+                        <button class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all">Previous</button>
+                        <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/10">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/api.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobId = urlParams.get('job_id');
+
+        async function loadApplicants() {
+            try {
+                let applicants = [];
+                if (jobId) {
+                    applicants = await api.adminGetApplicantsByJob(jobId);
+                } else {
+                    applicants = await api.adminGetAllApplicants();
+                }
+
+                document.getElementById('total-applicants-badge').textContent = `${applicants.length} Total`;
+                
+                const body = document.getElementById('applicants-table-body');
+                body.innerHTML = '';
+
+                applicants.forEach(app => {
+                    const statusClass = app.status === 'Rejected' ? 'status-rejected' : 
+                                      app.status === 'Selected' ? 'status-selected' :
+                                      app.status === 'Shortlisted' ? 'status-shortlisted' : 
+                                      'status-pending';
+
+                    const row = `
+                        <tr class="hover:bg-slate-50/80 transition-colors">
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-2xl bg-slate-100 overflow-hidden border border-white shadow-sm shrink-0">
+                                        <img src="https://ui-avatars.com/api/?name=${app.student_name}&background=random" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="font-black text-slate-900 leading-none mb-1">${app.student_name}</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase">${app.student_email}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6">
+                                <p class="text-sm font-bold text-slate-900">N/A CGPA</p>
+                                <p class="text-[10px] font-black text-slate-400 uppercase">Student</p>
+                            </td>
+                            <td class="px-6 py-6">
+                                <select onchange="updateStatus(${app.job_id}, '${app.student_email}', this.value)" class="status-pill ${statusClass} bg-transparent border-none focus:ring-0 cursor-pointer">
+                                    <option value="Pending" ${app.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                    <option value="Shortlisted" ${app.status === 'Shortlisted' ? 'selected' : ''}>Shortlisted</option>
+                                    <option value="Selected" ${app.status === 'Selected' ? 'selected' : ''}>Selected</option>
+                                    <option value="Rejected" ${app.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
+                                </select>
+                            </td>
+                            <td class="px-6 py-6">
+                                <p class="text-sm font-bold text-slate-600 truncate max-w-[150px]">${app.job_role}</p>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex justify-center gap-2">
+                                    <button onclick="window.location.href='../job-details.html?id=${app.job_id}'" class="w-9 h-9 flex items-center justify-center bg-slate-100 text-slate-400 rounded-lg hover:text-primary transition-all"><span class="material-symbols-outlined text-lg">visibility</span></button>
+                                    <button class="w-9 h-9 flex items-center justify-center bg-slate-100 text-slate-400 rounded-lg hover:text-primary transition-all"><span class="material-symbols-outlined text-lg">description</span></button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                    body.insertAdjacentHTML('beforeend', row);
+                });
+
+            } catch (error) {
+                console.error('Error loading applicants:', error);
+            }
+        }
+
+        async function updateStatus(jobId, studentEmail, status) {
+            try {
+                await api.adminUpdateApplicationStatus(jobId, studentEmail, status);
+                alert('Status updated successfully');
+                loadApplicants();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!api.getToken()) {
+                window.location.href = '../index.html';
+                return;
+            }
+            loadApplicants();
+        });
+    </script>
+</body>
+</html>

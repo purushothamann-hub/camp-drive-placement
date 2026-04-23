@@ -1,22 +1,15 @@
-# Campus Placement Management System - API Report
+# API Testing Results
 
-## Overview
-All business rules including eligibility, RBAC, and status transitions have been validated.
-
-## API Summary
-| Feature | Endpoint | Status | Result |
-| :--- | :--- | :--- | :--- |
-| Admin Reg | `POST /register` | 200 | Success |
-| Student Reg | `POST /register` | 200 | Success |
-| RBAC Check | `POST /admin/jobs` | 403 | Blocked Student |
-| Job Creation | `POST /admin/jobs` | 200 | Created |
-| Apply (No Resume) | `POST /student/jobs/{id}/apply` | 400 | Blocked |
-| Apply (Success) | `POST /student/jobs/{id}/apply` | 200 | Applied |
-| Shortlist | `PATCH /applications/{id}/status` | 200 | Success |
-
-## Test Cases
-1. Registration & Login (Success)
-2. RBAC Enforcement (Success)
-3. Resume Requirement (Success)
-4. Eligibility Check (Success)
-5. Status Workflow (Success)
+| Endpoint | Method | Status | Summary |
+| --- | --- | --- | --- |
+| /register | POST | 200 | {'email': 'admin@example.com', 'name': 'Admin User', 'role': 'admin', 'id': 1, 'cgpa': None, 'department': None, 'year': None, 'backlogs': 0, 'resume_url': None, 'created_at': '2026-04-23T13:13:36'} |
+| /register | POST | 200 | {'email': 'student@example.com', 'name': 'Student User', 'role': 'student', 'id': 2, 'cgpa': 8.5, 'department': 'CSE', 'year': 2024, 'backlogs': 0, 'resume_url': None, 'created_at': '2026-04-23T13:13:36'} |
+| /login | POST | 200 | Token received |
+| /login | POST | 200 | Token received |
+| /admin/jobs | POST | 200 | {'company_name': 'Google', 'role': 'Software Engineer', 'description': 'Develop cool things', 'min_cgpa': 8.0, 'allowed_departments': ['CSE', 'ECE'], 'allowed_years': [2024, 2025], 'max_backlogs': 0, 'deadline': '2026-12-31T23:59:59', 'id': 1, 'created_at': '2026-04-23T13:13:37'} |
+| /student/jobs | GET | 200 | Found 1 jobs |
+| /student/upload-resume | POST | 200 | {'message': 'Resume uploaded successfully', 'path': 'uploads/resumes\\2.pdf'} |
+| /student/jobs/{id}/apply | POST | 200 | {'id': 1, 'student_id': 2, 'job_id': 1, 'status': 'Applied', 'applied_at': '2026-04-23T13:13:37', 'student': {'email': 'student@example.com', 'name': 'Student User', 'role': 'student', 'id': 2, 'cgpa': 8.5, 'department': 'CSE', 'year': 2024, 'backlogs': 0, 'resume_url': 'uploads/resumes\\2.pdf', 'created_at': '2026-04-23T13:13:36'}, 'job': {'company_name': 'Google', 'role': 'Software Engineer', 'description': 'Develop cool things', 'min_cgpa': 8.0, 'allowed_departments': ['CSE', 'ECE'], 'allowed_years': [2024, 2025], 'max_backlogs': 0, 'deadline': '2026-12-31T23:59:59', 'id': 1, 'created_at': '2026-04-23T13:13:37'}} |
+| /admin/jobs/{id}/applicants | GET | 200 | Found 1 applicants |
+| /admin/applications/{id}/status | PATCH | 200 | {'id': 1, 'student_id': 2, 'job_id': 1, 'status': 'Shortlisted', 'applied_at': '2026-04-23T13:13:37', 'student': {'email': 'student@example.com', 'name': 'Student User', 'role': 'student', 'id': 2, 'cgpa': 8.5, 'department': 'CSE', 'year': 2024, 'backlogs': 0, 'resume_url': 'uploads/resumes\\2.pdf', 'created_at': '2026-04-23T13:13:36'}, 'job': {'company_name': 'Google', 'role': 'Software Engineer', 'description': 'Develop cool things', 'min_cgpa': 8.0, 'allowed_departments': ['CSE', 'ECE'], 'allowed_years': [2024, 2025], 'max_backlogs': 0, 'deadline': '2026-12-31T23:59:59', 'id': 1, 'created_at': '2026-04-23T13:13:37'}} |
+| /student/applications | GET | 200 | [{'id': 1, 'student_id': 2, 'job_id': 1, 'status': 'Shortlisted', 'applied_at': '2026-04-23T13:13:37', 'student': {'email': 'student@example.com', 'name': 'Student User', 'role': 'student', 'id': 2, 'cgpa': 8.5, 'department': 'CSE', 'year': 2024, 'backlogs': 0, 'resume_url': 'uploads/resumes\\2.pdf', 'created_at': '2026-04-23T13:13:36'}, 'job': {'company_name': 'Google', 'role': 'Software Engineer', 'description': 'Develop cool things', 'min_cgpa': 8.0, 'allowed_departments': ['CSE', 'ECE'], 'allowed_years': [2024, 2025], 'max_backlogs': 0, 'deadline': '2026-12-31T23:59:59', 'id': 1, 'created_at': '2026-04-23T13:13:37'}}] |

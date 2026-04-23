@@ -8,6 +8,7 @@ from app.db.session import get_db
 from app.schemas.user import UserCreate, UserOut
 from app.schemas.token import Token
 from app.services import user_service
+from app.routes.deps import get_current_user
 
 router = APIRouter()
 
@@ -33,7 +34,11 @@ def login(db: Session = Depends(get_db), form_data: OAuth2PasswordRequestForm = 
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     return {
         "access_token": security.create_access_token(
-            user.email, expires_delta=access_token_expires
+            user.email, role=user.role, expires_delta=access_token_expires
         ),
         "token_type": "bearer",
     }
+
+@router.get("/me", response_model=UserOut)
+def read_user_me(current_user: UserOut = Depends(get_current_user)):
+    return current_user

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#faf8ff",
+                        "surface-container-low": "#f4f3f9",
+                        "inverse-on-surface": "#f1f0f6",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container": "#efedf3",
+                        "on-primary-fixed": "#00174a",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "on-surface": "#1a1b20",
+                        "secondary": "#5d5f5f",
+                        "outline": "#757682",
+                        "primary-fixed": "#dbe1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#390b00",
+                        "on-background": "#1a1b20",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#2d0700",
+                        "tertiary-container": "#501300",
+                        "inverse-surface": "#2f3035",
+                        "outline-variant": "#c5c6d2",
+                        "inverse-primary": "#b3c5ff",
+                        "on-secondary-container": "#5f6161",
+                        "primary-container": "#002366",
+                        "surface-dim": "#dad9e0",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00113a",
+                        "surface-tint": "#435b9f",
+                        "on-surface-variant": "#444650",
+                        "on-secondary-fixed-variant": "#454747",
+                        "secondary-container": "#dcdddd",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e3e2e8",
+                        "surface-container-high": "#e9e7ee",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdbd0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "on-primary-container": "#758dd5",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-tertiary-fixed-variant": "#783018",
+                        "on-tertiary-container": "#d37758",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-bright": "#faf8ff",
+                        "surface-variant": "#e3e2e8",
+                        "surface": "#faf8ff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "1.5rem",
+                        "xs": "0.5rem",
+                        "container-max": "1440px",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "sm": "1rem",
+                        "base": "4px",
+                        "gutter": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "status-badge": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "h2": ["Inter"],
+                        "h3": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "status-badge": ["12px", {"lineHeight": "12px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "h1": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 docked full-width top-0 z-50 flex justify-between items-center w-full px-6 py-3 sticky">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-400 cursor-pointer active:opacity-70 transition-opacity" data-icon="menu">menu</span>
+<h1 class="text-lg font-black text-blue-900 dark:text-blue-100 font-inter tracking-tight">Placement Admin</h1>
+</div>
+<button class="font-inter text-sm font-semibold tracking-tight text-blue-900 dark:text-blue-400 cursor-pointer active:opacity-70 transition-opacity">Logout</button>
+</header>
+<main class="flex min-h-[calc(100-52px)]">
+<!-- NavigationDrawer (Hidden on Mobile, but defined for structure) -->
+<aside class="hidden md:flex flex-col h-screen p-4 bg-slate-50 dark:bg-slate-950 fixed left-0 top-0 w-[280px] border-r border-slate-200 dark:border-slate-800">
+<div class="flex flex-col gap-6 h-full">
+<div class="flex items-center gap-3 px-2 py-4">
+<img alt="Admin Avatar" class="w-10 h-10 rounded-full" data-alt="professional headshot of a senior administrator in a minimalist office setting with soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqw7N9eVTlD2S9PFFP44cHlKgKA2OEk4r6LCeUVl8irqi24ebrY4f9d5-cZZH41wTYpARb7_pltpqb3tkxM2yAPix7SxZuDJQCnR0gBYHH-hEqx97QXUuwNK9icM689XzdCXrFDuiO6q4YJtXpCIoicT5COQC0jnfSCao4O-z8Hz7FmAEoE-fHjqm6uwzPfyBl9VgdRRXDnVQmoyCXx7gonFsDh0rqgx-EzxKDtdEoIAUQFY2NZ-7LXc29lhbSXJfo1s8DEa3Pkqk"/>
+<div>
+<p class="text-blue-900 dark:text-blue-100 font-bold font-inter text-sm">Admin User</p>
+<p class="text-slate-500 text-xs font-inter">System Administrator</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 transition-colors font-inter text-sm font-medium">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white dark:bg-blue-900/20 text-blue-900 dark:text-blue-200 border-l-4 border-blue-900 font-bold font-inter text-sm">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span>Job Listings</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 transition-colors font-inter text-sm font-medium">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Applicants</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 transition-colors font-inter text-sm font-medium">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span>Companies</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 transition-colors font-inter text-sm font-medium">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Reports</span>
+</div>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<div class="flex-1 w-full md:ml-[280px]">
+<div class="px-sm md:px-lg py-sm md:py-md space-y-md">
+<!-- Page Header (Mobile Optimized) -->
+<div class="flex flex-col gap-1 px-base">
+<h2 class="font-h2 text-h2 text-on-surface">Manage Job Listings</h2>
+<p class="font-body-md text-on-surface-variant">Manage active campus recruitment drives</p>
+</div>
+<!-- Filters / Search (Simplified for Mobile) -->
+<div class="px-base">
+<div class="flex items-center bg-white border border-outline-variant rounded-lg px-4 py-3 w-full shadow-sm">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-on-surface placeholder-outline" placeholder="Search by company or role..." type="text"/>
+</div>
+</div>
+<!-- Job Cards List -->
+<div class="space-y-4 px-base pb-24">
+<!-- Card 1 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<div>
+<h3 class="font-h3 text-blue-900 font-bold leading-tight">Google</h3>
+<p class="font-label-caps text-outline">San Francisco, USA</p>
+</div>
+</div>
+<div class="bg-blue-50 text-blue-800 px-2 py-1 rounded text-status-badge font-status-badge">
+                                Active
+                            </div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="work">work</span>
+<span class="font-body-lg font-semibold text-on-surface">Software Engineering Intern</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="event">event</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-outline uppercase">Deadline</span>
+<span class="font-body-md font-medium text-on-surface">Oct 24, 2024</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-label-caps tracking-wider transition-opacity active:opacity-80">
+                            VIEW APPLICANTS
+                        </button>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h3 class="font-h3 text-blue-900 font-bold leading-tight">Goldman Sachs</h3>
+<p class="font-label-caps text-outline">Bengaluru, India</p>
+</div>
+</div>
+<div class="bg-blue-50 text-blue-800 px-2 py-1 rounded text-status-badge font-status-badge">
+                                Active
+                            </div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="payments">payments</span>
+<span class="font-body-lg font-semibold text-on-surface">Financial Analyst</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="event">event</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-outline uppercase">Deadline</span>
+<span class="font-body-md font-medium text-on-surface">Nov 02, 2024</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-label-caps tracking-wider transition-opacity active:opacity-80">
+                            VIEW APPLICANTS
+                        </button>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span>
+</div>
+<div>
+<h3 class="font-h3 text-blue-900 font-bold leading-tight">Salesforce</h3>
+<p class="font-label-caps text-outline">Hyderabad, India</p>
+</div>
+</div>
+<div class="bg-emerald-50 text-emerald-800 px-2 py-1 rounded text-status-badge font-status-badge">
+                                Interviewing
+                            </div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="code">code</span>
+<span class="font-body-lg font-semibold text-on-surface">MTS-1 Developer</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="event">event</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-outline uppercase">Deadline</span>
+<span class="font-body-md font-medium text-on-surface">Expired</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-label-caps tracking-wider transition-opacity active:opacity-80">
+                            VIEW APPLICANTS
+                        </button>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md shadow-[0px_2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div>
+<h3 class="font-h3 text-blue-900 font-bold leading-tight">Tesla</h3>
+<p class="font-label-caps text-outline">Austin, USA</p>
+</div>
+</div>
+<div class="bg-blue-50 text-blue-800 px-2 py-1 rounded text-status-badge font-status-badge">
+                                Active
+                            </div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="settings">settings</span>
+<span class="font-body-lg font-semibold text-on-surface">Mechanical Engineer</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="event">event</span>
+<div class="flex flex-col">
+<span class="font-label-caps text-outline uppercase">Deadline</span>
+<span class="font-body-md font-medium text-on-surface">Nov 15, 2024</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-3 rounded-lg font-label-caps tracking-wider transition-opacity active:opacity-80">
+                            VIEW APPLICANTS
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for Adding New Job -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-blue-900 text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 grid grid-cols-5 h-16 items-center px-2 z-50">
+<div class="flex flex-col items-center justify-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-medium uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-blue-900">
+<span class="material-symbols-outlined" data-icon="work" data-weight="fill">work</span>
+<span class="text-[10px] font-bold uppercase">Jobs</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-[10px] font-medium uppercase">Apps</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="text-[10px] font-medium uppercase">Orgs</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-medium uppercase">Profile</span>
+</div>
+</nav>
+</body></html>

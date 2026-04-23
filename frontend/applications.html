@@ -47,96 +47,75 @@
         <main class="p-6 md:p-10 max-w-5xl mx-auto animate-fade-in">
             <div class="flex items-center justify-between mb-8">
                 <div class="flex gap-4">
-                    <button class="px-6 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-lg shadow-slate-200">Active (12)</button>
+                    <button id="active-count" class="px-6 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-lg shadow-slate-200">Active (0)</button>
                     <button class="px-6 py-2 bg-white text-slate-500 border border-slate-200 rounded-full text-sm font-bold hover:bg-slate-50 transition-all">Past (45)</button>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <!-- Application Card 1 -->
-                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden group hover:shadow-md transition-all">
-                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0">
-                            <img src="https://logo.clearbit.com/netflix.com" alt="Netflix" class="w-10 h-10 object-contain">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-slate-900 mb-1">Senior Software Engineer</h3>
-                            <p class="font-semibold text-slate-500 mb-4">Netflix • Applied on Sept 12, 2024</p>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-3 py-1 bg-amber-50 text-amber-600 text-xs font-bold rounded-full border border-amber-100 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Interview Scheduled</span>
-                                <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs font-bold rounded-full border border-slate-200">Tech Round 1</span>
-                            </div>
-                        </div>
-                        <div class="w-full sm:w-auto flex flex-col gap-2 shrink-0">
-                            <button class="w-full px-6 py-3 bg-primary text-white rounded-xl text-sm font-bold hover:opacity-90 transition-all">View Details</button>
-                            <button class="w-full px-6 py-3 bg-slate-50 text-slate-600 rounded-xl text-sm font-bold border border-slate-200 hover:bg-slate-100 transition-all">Contact HR</button>
-                        </div>
-                    </div>
-                    <!-- Tracking Stepper -->
-                    <div class="px-8 py-6 bg-slate-50/50 border-t border-slate-100 hidden sm:block">
-                        <div class="flex justify-between relative pl-4 pr-4">
-                            <div class="absolute top-4 left-4 right-4 h-0.5 bg-slate-200 z-0"></div>
-                            <div class="absolute top-4 left-4 w-1/2 h-0.5 bg-primary z-0"></div>
-                            
-                            <div class="relative z-10 flex flex-col items-center gap-2">
-                                <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center border-4 border-white shadow-sm"><span class="material-symbols-outlined text-sm">check</span></div>
-                                <span class="text-[10px] font-bold text-primary uppercase">Applied</span>
-                            </div>
-                            <div class="relative z-10 flex flex-col items-center gap-2">
-                                <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center border-4 border-white shadow-sm"><span class="material-symbols-outlined text-sm">check</span></div>
-                                <span class="text-[10px] font-bold text-primary uppercase">Shortlisted</span>
-                            </div>
-                            <div class="relative z-10 flex flex-col items-center gap-2">
-                                <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center border-4 border-white shadow-sm ring-4 ring-primary/20"><span class="material-symbols-outlined text-sm">event</span></div>
-                                <span class="text-[10px] font-bold text-primary uppercase">Interview</span>
-                            </div>
-                            <div class="relative z-10 flex flex-col items-center gap-2">
-                                <div class="w-8 h-8 bg-white text-slate-300 rounded-full flex items-center justify-center border-2 border-slate-200"><span class="material-symbols-outlined text-sm">assignment_turned_in</span></div>
-                                <span class="text-[10px] font-bold text-slate-300 uppercase">Offer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Application Card 2 -->
-                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden group hover:shadow-md transition-all">
-                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0">
-                            <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" class="w-10 h-10 object-contain">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-slate-900 mb-1">Backend Engineer (SDE I)</h3>
-                            <p class="font-semibold text-slate-500 mb-4">Amazon • Applied on Sept 05, 2024</p>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-bold rounded-full border border-slate-200 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Under Review</span>
-                            </div>
-                        </div>
-                        <div class="w-full sm:w-auto flex flex-col gap-2 shrink-0">
-                            <button class="w-full px-6 py-3 bg-primary text-white rounded-xl text-sm font-bold hover:opacity-90 transition-all">View Details</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Application Card 3 -->
-                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden group hover:opacity-75 transition-all">
-                    <div class="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0 grayscale">
-                            <img src="https://logo.clearbit.com/uber.com" alt="Uber" class="w-10 h-10 object-contain">
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-slate-300 mb-1 line-through">Product Analyst</h3>
-                            <p class="font-semibold text-slate-400 mb-4">Uber Automation • Applied on Aug 28, 2024</p>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-3 py-1 bg-error-container/10 text-error text-xs font-bold rounded-full border border-error/10 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Not Shortlisted</span>
-                            </div>
-                        </div>
-                        <div class="w-full sm:w-auto flex flex-col gap-2 shrink-0">
-                            <button class="w-full px-6 py-3 bg-slate-200 text-slate-500 rounded-xl text-sm font-bold cursor-not-allowed">Closed</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="applications-list-container" class="space-y-6">
+                <!-- Applications will be loaded here -->
             </div>
         </main>
     </div>
+    <script src="js/api.js"></script>
+    <script>
+        async function loadApplications() {
+            try {
+                const applications = await api.getApplications();
+                const jobs = await api.getJobs();
+                const container = document.getElementById('applications-list-container');
+                container.innerHTML = '';
+
+                if (applications.length === 0) {
+                    container.innerHTML = '<div class="text-center py-20 bg-white rounded-3xl border border-slate-200 text-slate-500">You haven\'t applied to any jobs yet.</div>';
+                    return;
+                }
+
+                applications.forEach(app => {
+                    const job = jobs.find(j => j.id === app.job_id) || { company_name: 'Unknown', role: 'Unknown' };
+                    const statusClass = app.status === 'Rejected' ? 'bg-red-50 text-red-600 border-red-100' : 
+                                      app.status === 'Selected' ? 'bg-green-50 text-green-600 border-green-100' :
+                                      app.status === 'Shortlisted' ? 'bg-blue-50 text-blue-600 border-blue-100' : 
+                                      'bg-amber-50 text-amber-600 border-amber-100';
+
+                    const card = `
+                        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden group hover:shadow-md transition-all">
+                            <div class="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0">
+                                    <img src="https://ui-avatars.com/api/?name=${job.company_name}&background=random" alt="${job.company_name}" class="w-10 h-10 object-contain rounded-lg">
+                                </div>
+                                <div class="flex-grow">
+                                    <h3 class="text-xl font-bold text-slate-900 mb-1">${job.role}</h3>
+                                    <p class="font-semibold text-slate-500 mb-4">${job.company_name} • Applied on ${new Date(app.applied_at).toLocaleDateString()}</p>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-3 py-1 ${statusClass} text-xs font-bold rounded-full border flex items-center gap-1.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-current"></span> ${app.status}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="w-full sm:w-auto flex flex-col gap-2 shrink-0">
+                                    <button onclick="window.location.href='job-details.html?id=${app.job_id}'" class="w-full px-6 py-3 bg-primary text-white rounded-xl text-sm font-bold hover:opacity-90 transition-all">View Job</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', card);
+                });
+
+                document.getElementById('active-count').textContent = `Active (${applications.length})`;
+
+            } catch (error) {
+                console.error('Error loading applications:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!api.getToken()) {
+                window.location.href = 'index.html';
+                return;
+            }
+            loadApplications();
+        });
+    </script>
 </body>
 </html>

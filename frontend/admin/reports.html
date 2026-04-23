@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Analytics | Placement Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002366',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAFC]">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-40">
+        <div class="p-8"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><span class="material-symbols-outlined">school</span></div><span class="text-xl font-black tracking-tighter text-primary uppercase">Placement Admin</span></div></div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="dashboard.html" class="sidebar-link"><span class="material-symbols-outlined">dashboard</span><span class="font-bold">Command Center</span></a>
+            <a href="manage-jobs.html" class="sidebar-link"><span class="material-symbols-outlined">work</span><span class="font-bold">Manage Drives</span></a>
+            <a href="applicants.html" class="sidebar-link"><span class="material-symbols-outlined">group</span><span class="font-bold">Applicants List</span></a>
+            <a href="reports.html" class="sidebar-link active"><span class="material-symbols-outlined">assessment</span><span class="font-bold">Analytics Reports</span></a>
+        </nav>
+    </aside>
+
+    <div class="md:ml-72 min-h-screen">
+        <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <h1 class="text-xl font-black text-slate-900">Analytics & Reports</h1>
+            <div class="flex gap-3">
+                <button class="px-6 py-2.5 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-lg">calendar_month</span> Oct 2023</button>
+                <button class="px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg flex items-center gap-2"><span class="material-symbols-outlined text-lg">download</span> Export PDF</button>
+            </div>
+        </header>
+
+        <main class="p-6 md:p-10 max-w-7xl mx-auto space-y-10 animate-fade-in">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-8">
+                    <h3 class="text-lg font-black text-slate-900 mb-8">Offer Distribution by Package</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">20+ LPA</span><span class="text-primary">12%</span></div>
+                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 12%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">12 - 20 LPA</span><span class="text-primary">28%</span></div>
+                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 28%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">8 - 12 LPA</span><span class="text-primary">45%</span></div>
+                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 45%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">Below 8 LPA</span><span class="text-primary">15%</span></div>
+                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 15%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-8 bg-primary text-white shadow-xl shadow-primary/20">
+                    <h3 class="text-lg font-black mb-8">Recruitment Summary</h3>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Total Offers</p>
+                            <p class="text-4xl font-black">3,412</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Unique Companies</p>
+                            <p class="text-4xl font-black">128</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Highest CTC</p>
+                            <p class="text-4xl font-black">54 LPA</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Placement %</p>
+                            <p class="text-4xl font-black">82.4%</p>
+                        </div>
+                    </div>
+                    <div class="mt-10 p-4 bg-white/10 rounded-2xl border border-white/10">
+                        <p class="text-xs font-medium text-white/80 leading-relaxed italic">"Recruitment activity has seen a 15% increase compared to the previous academic session, with a significant rise in high-package offers from product-based companies."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-8">
+                <h3 class="text-lg font-black text-slate-900 mb-6">Top Recruiting Companies</h3>
+                <div class="flex flex-wrap gap-10 justify-between items-center opacity-60 grayscale hover:grayscale-0 transition-all">
+                    <img src="https://logo.clearbit.com/google.com" class="h-10 object-contain">
+                    <img src="https://logo.clearbit.com/microsoft.com" class="h-10 object-contain">
+                    <img src="https://logo.clearbit.com/amazon.com" class="h-10 object-contain">
+                    <img src="https://logo.clearbit.com/meta.com" class="h-10 object-contain">
+                    <img src="https://logo.clearbit.com/tesla.com" class="h-10 object-contain">
+                    <img src="https://logo.clearbit.com/netflix.com" class="h-10 object-contain">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
