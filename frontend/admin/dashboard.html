@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Placement Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002366',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAFC]">
+    <!-- Mobile Menu Toggle -->
+    <button class="md:hidden fixed top-6 right-6 z-50 p-3 bg-primary text-white rounded-xl shadow-lg" onclick="document.getElementById('sidebar').classList.toggle('-translate-x-full')">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-white border-r border-slate-200 flex flex-col z-40 transition-transform -translate-x-full md:translate-x-0">
+        <div class="p-8">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined">school</span>
+                </div>
+                <span class="text-xl font-black tracking-tighter text-primary uppercase">Placement Admin</span>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="dashboard.html" class="sidebar-link active">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-bold">Command Center</span>
+            </a>
+            <a href="manage-jobs.html" class="sidebar-link">
+                <span class="material-symbols-outlined">work</span>
+                <span class="font-bold">Manage Drives</span>
+            </a>
+            <a href="applicants.html" class="sidebar-link">
+                <span class="material-symbols-outlined">group</span>
+                <span class="font-bold">Applicants List</span>
+            </a>
+            <a href="reports.html" class="sidebar-link">
+                <span class="material-symbols-outlined">assessment</span>
+                <span class="font-bold">Analytics Reports</span>
+            </a>
+            <div class="pt-10 px-4">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Quick Forms</p>
+                <a href="create-job.html" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-100 text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all">
+                    <span class="material-symbols-outlined text-lg">add</span>
+                    <span>New Drive</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="p-6 border-t border-slate-100">
+            <div class="bg-slate-50 p-4 rounded-2xl flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border-2 border-white shadow-sm overflow-hidden">
+                    <img src="https://i.pravatar.cc/100?u=admin" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-grow overflow-hidden">
+                    <p class="text-sm font-black text-slate-900 truncate">Admin User</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase">Super Admin</p>
+                </div>
+                <button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">logout</span></button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="md:ml-72 min-h-screen">
+        <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <h1 class="text-xl font-black text-slate-900 hidden md:block">System Overview</h1>
+                <div class="h-6 w-px bg-slate-200 mx-2 hidden md:block"></div>
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-400">
+                    <span class="material-symbols-outlined text-lg">calendar_today</span>
+                    Academic Session 2023-24
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="p-2.5 bg-slate-50 text-slate-500 rounded-xl hover:text-primary transition-all relative">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+                <button class="p-2.5 bg-slate-50 text-slate-500 rounded-xl hover:text-primary transition-all">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="p-6 md:p-10 max-w-7xl mx-auto space-y-10 animate-fade-in">
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6 border-l-4 border-l-primary">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-primary/5 text-primary rounded-xl flex items-center justify-center"><span class="material-symbols-outlined">work</span></div>
+                        <span class="text-[10px] font-black text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Total Active Drives</p>
+                    <p id="stat-active-drives" class="text-3xl font-black text-slate-900">0</p>
+                </div>
+                <div class="card p-6 border-l-4 border-l-blue-400">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center"><span class="material-symbols-outlined">group</span></div>
+                        <span class="text-[10px] font-black text-slate-400 bg-slate-100 px-2 py-1 rounded-full">Total</span>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Registered Students</p>
+                    <p id="stat-total-applicants" class="text-3xl font-black text-slate-900">0</p>
+                </div>
+                <div class="card p-6 border-l-4 border-l-green-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center"><span class="material-symbols-outlined">check_circle</span></div>
+                        <span class="text-[10px] font-black text-green-600 bg-green-50 px-2 py-1 rounded-full">64%</span>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Total Placed</p>
+                    <p id="stat-total-placed" class="text-3xl font-black text-slate-900">0</p>
+                </div>
+                <div class="card p-6 border-l-4 border-l-amber-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center"><span class="material-symbols-outlined">payments</span></div>
+                        <span class="text-[10px] font-black text-amber-600 bg-amber-50 px-2 py-1 rounded-full">Avg</span>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Average CTC</p>
+                    <p class="text-3xl font-black text-slate-900">8.4 LPA</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Recent Activity Table -->
+                <div class="lg:col-span-2 card overflow-hidden">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                        <h3 class="text-lg font-black text-slate-900">Recent Applications</h3>
+                        <button class="text-primary text-sm font-bold hover:underline">Export CSV</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] border-b border-slate-200">
+                                <tr>
+                                    <th class="px-6 py-4">Student</th>
+                                    <th class="px-6 py-4">Company</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-applications-body" class="divide-y divide-slate-100">
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events -->
+                <div class="space-y-6">
+                    <div class="bg-primary p-8 rounded-3xl text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+                        <h3 class="text-xl font-black mb-6 relative z-10">Upcoming Drives</h3>
+                        <div class="space-y-6 relative z-10">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-2xl flex flex-col items-center justify-center shrink-0">
+                                    <span class="text-xs font-black">24</span>
+                                    <span class="text-[8px] uppercase font-bold">OCT</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold">Tesla Automation</p>
+                                    <p class="text-xs text-white/60">Aptitude Test • 10:00 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-2xl flex flex-col items-center justify-center shrink-0">
+                                    <span class="text-xs font-black">28</span>
+                                    <span class="text-[8px] uppercase font-bold">OCT</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold">Netflix Design</p>
+                                    <p class="text-xs text-white/60">Portfolio Review • 02:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-full mt-8 py-3 bg-white text-primary rounded-xl font-bold hover:bg-slate-100 transition-all">Full Calendar</button>
+                        <span class="material-symbols-outlined absolute -right-8 -bottom-8 text-[120px] opacity-5">event</span>
+                    </div>
+
+                    <div class="card p-6">
+                        <h3 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4">Placement Progress</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2">
+                                    <span class="text-slate-500">B.Tech CSE</span>
+                                    <span class="text-primary">85%</span>
+                                </div>
+                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2">
+                                    <span class="text-slate-500">B.Tech IT</span>
+                                    <span class="text-primary">72%</span>
+                                </div>
+                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 72%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-2">
+                                    <span class="text-slate-500">B.Tech ECE</span>
+                                    <span class="text-primary">48%</span>
+                                </div>
+                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 48%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/api.js"></script>
+    <script>
+        async function loadAdminDashboard() {
+            try {
+                const jobs = await api.adminGetJobs();
+                const applicants = await api.adminGetAllApplicants();
+
+                // Stats
+                document.getElementById('stat-active-drives').textContent = jobs.length;
+                document.getElementById('stat-total-applicants').textContent = applicants.length;
+                
+                const placedCount = applicants.filter(a => a.status === 'Selected').length;
+                document.getElementById('stat-total-placed').textContent = placedCount;
+                
+                // Recent Applications
+                const recentBody = document.getElementById('recent-applications-body');
+                recentBody.innerHTML = '';
+
+                // Take last 5 applicants as "recent"
+                const recent = applicants.slice(-5).reverse();
+
+                recent.forEach(app => {
+                    const statusClass = app.status === 'Rejected' ? 'status-rejected' : 
+                                      app.status === 'Selected' ? 'status-selected' :
+                                      app.status === 'Shortlisted' ? 'status-shortlisted' : 
+                                      'status-pending';
+
+                    const row = `
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+                                        <img src="https://ui-avatars.com/api/?name=${app.student_name}&background=random">
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-sm">${app.student_name}</p>
+                                        <p class="text-[10px] text-slate-400">${app.student_email}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm font-semibold text-slate-600">${app.job_role}</td>
+                            <td class="px-6 py-4">
+                                <span class="status-pill ${statusClass}">${app.status}</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button onclick="window.location.href='applicants.html?job_id=${app.job_id}'" class="p-2 text-slate-400 hover:text-primary transition-all"><span class="material-symbols-outlined text-lg">visibility</span></button>
+                            </td>
+                        </tr>
+                    `;
+                    recentBody.insertAdjacentHTML('beforeend', row);
+                });
+
+            } catch (error) {
+                console.error('Error loading admin dashboard:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = api.getToken();
+            if (!token) {
+                window.location.href = '../index.html';
+                return;
+            }
+            loadAdminDashboard();
+        });
+    </script>
+</body>
+</html>

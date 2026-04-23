@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#faf8ff",
+            "surface-container-low": "#f4f3f9",
+            "inverse-on-surface": "#f1f0f6",
+            "on-secondary-fixed": "#1a1c1c",
+            "surface-container": "#efedf3",
+            "on-primary-fixed": "#00174a",
+            "on-primary-fixed-variant": "#2a4386",
+            "on-surface": "#1a1b20",
+            "secondary": "#5d5f5f",
+            "outline": "#757682",
+            "primary-fixed": "#dbe1ff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#390b00",
+            "on-background": "#1a1b20",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "tertiary": "#2d0700",
+            "tertiary-container": "#501300",
+            "inverse-surface": "#2f3035",
+            "outline-variant": "#c5c6d2",
+            "inverse-primary": "#b3c5ff",
+            "on-secondary-container": "#5f6161",
+            "primary-container": "#002366",
+            "surface-dim": "#dad9e0",
+            "secondary-fixed": "#e2e2e2",
+            "on-tertiary": "#ffffff",
+            "primary": "#00113a",
+            "surface-tint": "#435b9f",
+            "on-surface-variant": "#444650",
+            "on-secondary-fixed-variant": "#454747",
+            "secondary-container": "#dcdddd",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e3e2e8",
+            "surface-container-high": "#e9e7ee",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#ffdbd0",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#ffb59e",
+            "on-primary-container": "#758dd5",
+            "primary-fixed-dim": "#b3c5ff",
+            "on-tertiary-fixed-variant": "#783018",
+            "on-tertiary-container": "#d37758",
+            "secondary-fixed-dim": "#c6c6c7",
+            "surface-bright": "#faf8ff",
+            "surface-variant": "#e3e2e8",
+            "surface": "#faf8ff",
+            "on-error": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "md": "1.5rem",
+            "xs": "0.5rem",
+            "container-max": "1440px",
+            "lg": "2rem",
+            "xl": "3rem",
+            "sm": "1rem",
+            "base": "4px",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-caps": ["Inter"],
+            "status-badge": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "h1": ["Inter"],
+            "h2": ["Inter"],
+            "h3": ["Inter"]
+          },
+          "fontSize": {
+            "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "status-badge": ["12px", {"lineHeight": "12px", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "h1": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "h3": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #e5e5e5;
+      border-radius: 10px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+<!-- NavigationDrawer (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[280px] border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 hidden md:flex flex-col p-4 z-40 transition-all duration-200 ease-in-out">
+<div class="mb-8 px-2">
+<h1 class="text-xl font-bold text-blue-900 dark:text-blue-100 font-h2">Placement Admin</h1>
+</div>
+<div class="flex items-center gap-3 p-3 mb-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm">
+<img alt="Admin Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="professional headshot of a male administrative officer in a clean minimalist studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX3Yj-lFbfQOxsOZtEj37ePkPNuem2Ui3gC2iTwIk0uZHaA6MpG5miBVSJZ6QBnGZ9Mkd5wgEsZCHhXCvUtu0IJGA7s1UgcFMY39RpN1oMMk_9vOhKud8aTStYpYI08h2UOlMK_lUoBDkrGBL4wsNvjV8yT2LvgHMD598hlRB9M4M-E7WdOGDEM9wobvGbWqTTN9UpYQRzsQ_RjwHMzwFib_Va38d43H7iNCMGha29BITI_jMuEjZG6ZqOC-lsspmF7RU5X85s364"/>
+<div>
+<p class="font-inter text-sm font-semibold text-blue-900 dark:text-blue-200">Admin User</p>
+<p class="font-inter text-xs text-slate-500 dark:text-slate-400">System Administrator</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-inter text-sm font-medium">Job Listings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-blue-900/20 text-blue-900 dark:text-blue-200 border-l-4 border-blue-900 font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-inter text-sm">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="font-inter text-sm font-medium">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-inter text-sm font-medium">Reports</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col md:ml-[280px] min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center w-full px-6 py-3 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-50 shadow-none">
+<div class="flex items-center gap-3">
+<button class="md:hidden p-1 text-slate-600 active:opacity-70">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-inter text-sm font-semibold tracking-tight text-blue-900 dark:text-blue-400">Applicants</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-blue-900 dark:text-blue-400 font-bold hidden md:inline font-inter text-sm">Placement Admin</span>
+<button class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer px-3 py-1 rounded-lg text-sm font-medium">Logout</button>
+</div>
+</header>
+<div class="p-4 md:p-8 max-w-5xl mx-auto w-full space-y-6">
+<!-- Job Context Header -->
+<div class="space-y-1">
+<div class="flex items-center gap-2 text-primary font-medium mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+<span class="text-label-caps font-label-caps">BACK TO JOB LISTINGS</span>
+</div>
+<h1 class="font-h1 text-h1 text-primary">Senior Software Engineer</h1>
+<p class="font-body-md text-secondary">TechCorp Solutions • Posted 12 days ago • 145 Applicants</p>
+</div>
+<!-- Filters/Search Bar -->
+<div class="flex flex-col sm:flex-row gap-4 bg-white p-4 border border-outline-variant shadow-sm rounded-lg">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Search by name, dept or CGPA..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded font-medium hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+<span>Filter</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded font-medium hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+<!-- Mobile View: Stacked Cards -->
+<div class="space-y-4">
+<!-- Applicant Card 1 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-lg">
+                  AS
+                </div>
+<div>
+<h3 class="font-h3 text-primary">Ananya Sharma</h3>
+<p class="text-body-md text-secondary">Computer Science &amp; Engineering</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 text-status-badge font-status-badge px-3 py-1.5 rounded-full">Applied</span>
+</div>
+<div class="flex items-center gap-6 py-3 border-y border-outline-variant/30">
+<div>
+<p class="text-label-caps font-label-caps text-outline">CGPA</p>
+<p class="font-bold text-on-surface">9.42 / 10</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">BATCH</p>
+<p class="font-bold text-on-surface">2024</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">RESUME</p>
+<a class="flex items-center gap-1 text-primary-container font-semibold hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                  View
+                </a>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-blue-50 text-blue-700 font-semibold text-sm hover:bg-blue-100 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="fact_check">fact_check</span>
+                Shortlist
+              </button>
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-slate-50 text-slate-300 font-semibold text-sm cursor-not-allowed opacity-60" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                Select
+              </button>
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-red-50 text-red-700 font-semibold text-sm hover:bg-red-100 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+                Reject
+              </button>
+</div>
+</div>
+</div>
+<!-- Applicant Card 2 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-lg">
+                  RM
+                </div>
+<div>
+<h3 class="font-h3 text-primary">Rahul Mehta</h3>
+<p class="text-body-md text-secondary">Information Technology</p>
+</div>
+</div>
+<span class="bg-indigo-100 text-indigo-800 text-status-badge font-status-badge px-3 py-1.5 rounded-full">Shortlisted</span>
+</div>
+<div class="flex items-center gap-6 py-3 border-y border-outline-variant/30">
+<div>
+<p class="text-label-caps font-label-caps text-outline">CGPA</p>
+<p class="font-bold text-on-surface">8.85 / 10</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">BATCH</p>
+<p class="font-bold text-on-surface">2024</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">RESUME</p>
+<a class="flex items-center gap-1 text-primary-container font-semibold hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                  View
+                </a>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-blue-900 text-white font-semibold text-sm opacity-50 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="fact_check" data-weight="fill">fact_check</span>
+                Shortlisted
+              </button>
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-green-50 text-green-700 font-semibold text-sm hover:bg-green-100 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                Select
+              </button>
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-red-50 text-red-700 font-semibold text-sm hover:bg-red-100 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+                Reject
+              </button>
+</div>
+</div>
+</div>
+<!-- Applicant Card 3 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-lg">
+                  VJ
+                </div>
+<div>
+<h3 class="font-h3 text-primary">Vikram Joshi</h3>
+<p class="text-body-md text-secondary">Electronics &amp; Communication</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-800 text-status-badge font-status-badge px-3 py-1.5 rounded-full">Selected</span>
+</div>
+<div class="flex items-center gap-6 py-3 border-y border-outline-variant/30">
+<div>
+<p class="text-label-caps font-label-caps text-outline">CGPA</p>
+<p class="font-bold text-on-surface">9.10 / 10</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">BATCH</p>
+<p class="font-bold text-on-surface">2024</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">RESUME</p>
+<a class="flex items-center gap-1 text-primary-container font-semibold hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                  View
+                </a>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-slate-50 text-slate-300 font-semibold text-sm cursor-not-allowed opacity-60" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="fact_check">fact_check</span>
+                Shortlist
+              </button>
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-green-700 text-white font-semibold text-sm opacity-50 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill">check_circle</span>
+                Selected
+              </button>
+<button class="flex items-center justify-center gap-1 py-2.5 rounded bg-slate-50 text-slate-300 font-semibold text-sm cursor-not-allowed opacity-60" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+                Reject
+              </button>
+</div>
+</div>
+</div>
+<!-- Applicant Card 4 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow grayscale opacity-80">
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-lg">
+                  PK
+                </div>
+<div>
+<h3 class="font-h3 text-primary">Priya Kapoor</h3>
+<p class="text-body-md text-secondary">Electrical Engineering</p>
+</div>
+</div>
+<span class="bg-red-100 text-red-800 text-status-badge font-status-badge px-3 py-1.5 rounded-full">Rejected</span>
+</div>
+<div class="flex items-center gap-6 py-3 border-y border-outline-variant/30">
+<div>
+<p class="text-label-caps font-label-caps text-outline">CGPA</p>
+<p class="font-bold text-on-surface">7.82 / 10</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">BATCH</p>
+<p class="font-bold text-on-surface">2024</p>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-outline">RESUME</p>
+<a class="flex items-center gap-1 text-primary-container font-semibold hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                  View
+                </a>
+</div>
+</div>
+<div class="grid grid-cols-1">
+<div class="flex items-center justify-center gap-2 py-3 bg-red-50 text-red-700 font-medium text-sm rounded border border-red-100">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                Application rejected on Oct 14, 2023
+              </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="flex flex-col items-center gap-4 py-8">
+<p class="text-body-md text-outline">Showing 4 of 145 applicants</p>
+<button class="px-8 py-3 bg-white border border-outline-variant text-primary font-bold rounded-lg hover:bg-surface-container-low transition-all active:scale-95">
+          Load More Applicants
+        </button>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 dark:border-slate-800 flex justify-around items-center py-2 px-4 z-50">
+<a class="flex flex-col items-center text-slate-500 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-medium mt-1">Dash</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="text-[10px] font-medium mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center text-blue-900 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill">group</span>
+<span class="text-[10px] font-bold mt-1">Applicants</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="text-[10px] font-medium mt-1">Companies</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-medium mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

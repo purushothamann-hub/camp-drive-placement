@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Drive | Placement Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002366',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAFC]">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-72 bg-white border-r border-slate-200 hidden md:flex flex-col z-40">
+        <div class="p-8"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><span class="material-symbols-outlined">school</span></div><span class="text-xl font-black tracking-tighter text-primary uppercase">Placement Admin</span></div></div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="dashboard.html" class="sidebar-link"><span class="material-symbols-outlined">dashboard</span><span class="font-bold">Command Center</span></a>
+            <a href="manage-jobs.html" class="sidebar-link active"><span class="material-symbols-outlined">work</span><span class="font-bold">Manage Drives</span></a>
+            <a href="applicants.html" class="sidebar-link"><span class="material-symbols-outlined">group</span><span class="font-bold">Applicants List</span></a>
+            <a href="reports.html" class="sidebar-link"><span class="material-symbols-outlined">assessment</span><span class="font-bold">Analytics Reports</span></a>
+        </nav>
+    </aside>
+
+    <div class="md:ml-72 min-h-screen">
+        <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="manage-jobs.html" class="p-2 text-slate-400 hover:text-primary transition-all"><span class="material-symbols-outlined">arrow_back</span></a>
+                <h1 class="text-xl font-black text-slate-900">Initialize New Drive</h1>
+            </div>
+            <div class="flex gap-3">
+                <button type="button" class="px-6 py-2.5 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all">Save Draft</button>
+                <button type="submit" form="form-job" id="btn-publish" class="px-6 py-2.5 bg-primary text-white rounded-xl text-sm font-bold shadow-lg hover:opacity-90 transition-all">Publish Drive</button>
+            </div>
+        </header>
+
+        <main class="p-6 md:p-10 max-w-4xl mx-auto animate-fade-in">
+            <form id="form-job" class="space-y-8">
+                <!-- Section 1: Company Details -->
+                <section class="card p-8 space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xs font-black">01</span>
+                        <h2 class="text-lg font-black text-slate-900">Company Information</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Company Name</label>
+                            <input type="text" id="input-company" required placeholder="e.g. Google India" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Logo URL</label>
+                            <input type="url" placeholder="https://logo.clearbit.com/..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Job Description</label>
+                            <textarea id="input-description" required rows="3" placeholder="Detailed job description..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all"></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Job Specs -->
+                <section class="card p-8 space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xs font-black">02</span>
+                        <h2 class="text-lg font-black text-slate-900">Drive Specifications</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Job Role / Title</label>
+                            <input type="text" id="input-role" required placeholder="e.g. Software Engineer SDE I" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Package (CTC in LPA)</label>
+                            <input type="text" placeholder="e.g. 12 - 18 LPA" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Work Location</label>
+                            <input type="text" placeholder="e.g. Remote / Bengaluru" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Application Deadline</label>
+                            <input type="date" id="input-deadline" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all text-slate-500">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Eligibility -->
+                <section class="card p-8 space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xs font-black">03</span>
+                        <h2 class="text-lg font-black text-slate-900">Eligibility Criteria</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Minimum CGPA</label>
+                                <input type="number" id="input-min-cgpa" step="0.1" required placeholder="e.g. 7.5" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Maximum Backlogs</label>
+                                <input type="number" id="input-max-backlogs" value="0" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Allowed Branches</label>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <label class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-white transition-all">
+                                        <input type="checkbox" id="checkbox-cse" checked class="rounded border-slate-300 text-primary focus:ring-primary">
+                                        <span class="text-xs font-bold text-slate-600">CSE</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-white transition-all">
+                                        <input type="checkbox" id="checkbox-it" checked class="rounded border-slate-300 text-primary focus:ring-primary">
+                                        <span class="text-xs font-bold text-slate-600">IT</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-white transition-all">
+                                        <input type="checkbox" id="checkbox-ece" class="rounded border-slate-300 text-primary focus:ring-primary">
+                                        <span class="text-xs font-bold text-slate-600">ECE</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Allowed Passing Years (Comma separated)</label>
+                            <input type="text" id="input-allowed-years" placeholder="e.g. 2024, 2025" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </main>
+    </div>
+    <script src="../js/api.js"></script>
+    <script>
+        async function handleCreateJob(event) {
+            event.preventDefault();
+            const btn = document.getElementById('btn-publish');
+            btn.disabled = true;
+            btn.textContent = 'Publishing...';
+
+            const departments = [];
+            if (document.getElementById('checkbox-cse').checked) departments.push('CSE');
+            if (document.getElementById('checkbox-it').checked) departments.push('IT');
+            if (document.getElementById('checkbox-ece').checked) departments.push('ECE');
+
+            const jobData = {
+                company_name: document.getElementById('input-company').value,
+                role: document.getElementById('input-role').value,
+                description: document.getElementById('input-description').value,
+                min_cgpa: parseFloat(document.getElementById('input-min-cgpa').value),
+                max_backlogs: parseInt(document.getElementById('input-max-backlogs').value),
+                deadline: document.getElementById('input-deadline').value,
+                allowed_departments: departments,
+                allowed_years: document.getElementById('input-allowed-years').value.split(',').map(y => parseInt(y.trim()))
+            };
+
+            try {
+                await api.adminCreateJob(jobData);
+                alert('Placement drive published successfully!');
+                window.location.href = 'manage-jobs.html';
+            } catch (error) {
+                alert(error.message);
+                btn.disabled = false;
+                btn.textContent = 'Publish Drive';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!api.getToken()) {
+                window.location.href = '../index.html';
+                return;
+            }
+            document.getElementById('form-job').onsubmit = handleCreateJob;
+        });
+    </script>
+</body>
+</html>

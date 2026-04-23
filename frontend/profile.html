@@ -57,10 +57,10 @@
                 <div class="pt-20 px-8 md:px-12 pb-10">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                         <div>
-                            <h2 class="text-3xl font-bold text-slate-900 mb-1">Arjun Sharma</h2>
-                            <p class="text-lg font-semibold text-slate-500 mb-3">B.Tech Computer Science Engineering • 2021-2025</p>
+                            <h2 id="user-full-name-hero" class="text-3xl font-bold text-slate-900 mb-1">Arjun Sharma</h2>
+                            <p id="user-education" class="text-lg font-semibold text-slate-500 mb-3">B.Tech Computer Science Engineering • 2021-2025</p>
                             <div class="flex flex-wrap gap-4 text-sm text-slate-400">
-                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">mail</span> arjun.s@university.edu</span>
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">mail</span> <span id="user-email">arjun.s@university.edu</span></span>
                                 <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">call</span> +91 98765 43210</span>
                                 <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">location_on</span> New Delhi, India</span>
                             </div>
@@ -88,9 +88,9 @@
                             <div class="flex gap-4">
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0"><span class="material-symbols-outlined">school</span></div>
                                 <div>
-                                    <h4 class="font-bold text-slate-900 leading-none mb-1">Bachelor of Technology in CSE</h4>
+                                    <h4 id="user-full-name" class="font-bold text-slate-900 leading-none mb-1">Arjun Sharma</h4>
                                     <p class="text-slate-500 text-sm font-medium">Indian Institute of Technology, Delhi • 2021-2025</p>
-                                    <p class="mt-4 text-primary font-bold">CGPA: 9.2 / 10.0</p>
+                                    <p id="user-cgpa" class="mt-4 text-primary font-bold">CGPA: 0.0 / 10.0</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
@@ -159,25 +159,16 @@
                     <section class="bg-primary text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
                         <h3 class="text-xl font-bold mb-6 relative z-10">Documents</h3>
                         <div class="space-y-4 relative z-10">
-                            <a href="#" class="flex items-center justify-between p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all group overflow-hidden relative">
+                            <input type="file" id="file-input" class="hidden" accept=".pdf">
+                            <a href="#" id="upload-resume-btn" class="flex items-center justify-between p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all group overflow-hidden relative">
                                 <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-slate-300">description</span>
+                                    <span class="material-symbols-outlined text-slate-300">upload_file</span>
                                     <div>
-                                        <p class="text-sm font-bold">Resume_Arjun_S.pdf</p>
-                                        <p class="text-[10px] text-slate-400">Updated 2 days ago</p>
+                                        <p id="resume-filename" class="text-sm font-bold">Upload Resume (PDF)</p>
+                                        <p id="resume-status" class="text-[10px] text-slate-400">Not Uploaded</p>
                                     </div>
                                 </div>
-                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">download</span>
-                            </a>
-                            <a href="#" class="flex items-center justify-between p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all group">
-                                <div class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-slate-300">verified</span>
-                                    <div>
-                                        <p class="text-sm font-bold">Consolidated_Marksheet.pdf</p>
-                                        <p class="text-[10px] text-slate-400">Semester 1-6</p>
-                                    </div>
-                                </div>
-                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">download</span>
+                                <span class="material-symbols-outlined group-hover:translate-y-[-2px] transition-transform">upload</span>
                             </a>
                         </div>
                         <span class="material-symbols-outlined absolute -right-6 -bottom-6 text-9xl opacity-5">folder</span>
@@ -186,5 +177,57 @@
             </div>
         </main>
     </div>
+    <script src="js/api.js"></script>
+    <script>
+        async function loadProfile() {
+            try {
+                const user = await api.getProfile();
+                document.getElementById('user-full-name').textContent = user.name;
+                document.getElementById('user-full-name-hero').textContent = user.name;
+                document.getElementById('user-education').textContent = `${user.department} • ${user.year} Passing`;
+                document.getElementById('user-email').textContent = user.email;
+                document.getElementById('user-cgpa').textContent = `CGPA: ${user.cgpa} / 10.0`;
+                
+                if (user.resume_url) {
+                    const filename = user.resume_url.split('/').pop();
+                    document.getElementById('resume-filename').textContent = filename;
+                    document.getElementById('resume-status').textContent = 'Uploaded';
+                }
+
+            } catch (error) {
+                console.error('Error loading profile:', error);
+            }
+        }
+
+        async function handleResumeUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.type !== 'application/pdf') {
+                alert('Please upload a PDF file.');
+                return;
+            }
+
+            try {
+                await api.uploadResume(file);
+                alert('Resume uploaded successfully!');
+                loadProfile();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!api.getToken()) {
+                window.location.href = 'index.html';
+                return;
+            }
+            loadProfile();
+            
+            const fileInput = document.getElementById('file-input');
+            document.getElementById('upload-resume-btn').addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', handleResumeUpload);
+        });
+    </script>
 </body>
 </html>

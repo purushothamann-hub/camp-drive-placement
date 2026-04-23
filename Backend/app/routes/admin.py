@@ -40,3 +40,12 @@ def update_application_status(
     return application_service.update_application_status(
         db, application_id=application_id, new_status=status_update.status
     )
+
+@router.get("/applications/all", response_model=List[ApplicationOut])
+def get_all_applications(
+    db: Session = Depends(get_db),
+    current_admin: User = Depends(get_current_active_admin)
+):
+    """View all applications across all jobs"""
+    from app.models.application import Application
+    return db.query(Application).all()
