@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | CampusHire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#dec29a",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#7c839b",
+                      "tertiary-fixed": "#fcdeb5",
+                      "on-secondary-fixed-variant": "#3a485c",
+                      "surface": "#fcf8fa",
+                      "primary": "#000000",
+                      "on-tertiary-fixed": "#271901",
+                      "surface-tint": "#565e74",
+                      "outline-variant": "#c6c6cd",
+                      "primary-fixed": "#dae2fd",
+                      "on-background": "#1b1b1d",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#271901",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary": "#000000",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#eae7e9",
+                      "outline": "#76777d",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#d5e3fd",
+                      "surface-container": "#f0edef",
+                      "secondary": "#515f74",
+                      "on-surface-variant": "#45464d",
+                      "inverse-surface": "#303032",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "on-surface": "#1b1b1d",
+                      "on-tertiary-container": "#98805d",
+                      "surface-bright": "#fcf8fa",
+                      "on-secondary-fixed": "#0d1c2f",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#b9c7e0",
+                      "surface-container-low": "#f6f3f5",
+                      "primary-fixed-dim": "#bec6e0",
+                      "primary-container": "#131b2e",
+                      "inverse-primary": "#bec6e0",
+                      "error-container": "#ffdad6",
+                      "on-secondary-container": "#57657b",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-dim": "#dcd9db",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-variant": "#e4e2e4",
+                      "on-tertiary": "#ffffff",
+                      "background": "#fcf8fa",
+                      "secondary-fixed": "#d5e3fd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "sm": "8px",
+                      "layout-margin": "40px",
+                      "md": "16px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "title-sm": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-sm": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf8fa;
+        }
+        .login-card {
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- Header Suppression: Following the "Destination" rule, the full nav is hidden on transactional login page -->
+<header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tight text-slate-900">CampusHire</div>
+<div class="hidden md:flex gap-4 items-center">
+<span class="text-slate-500 font-body-sm">Institutional Excellence</span>
+<button class="material-symbols-outlined text-slate-400">help_outline</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-4 py-12">
+<div class="w-full max-w-md">
+<!-- Professional Login Card -->
+<div class="bg-white rounded-xl overflow-hidden login-card">
+<div class="p-lg md:p-xl space-y-xl">
+<div class="space-y-sm text-center">
+<h1 class="font-display-lg text-display-lg text-primary">Welcome Back</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Sign in to access your placement dashboard</p>
+</div>
+<form class="space-y-lg">
+<div class="space-y-sm">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase" for="email">University Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/5 transition-all outline-none font-body-md text-body-md" id="email" name="email" placeholder="name@university.edu" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase" for="password">Password</label>
+<a class="font-body-sm text-body-sm text-on-secondary-container hover:text-primary transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/5 transition-all outline-none font-body-md text-body-md" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-lg font-title-sm text-title-sm hover:bg-slate-800 transition-colors active:scale-[0.98] duration-200" type="submit">
+                            Sign In
+                        </button>
+</form>
+<div class="relative py-4">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200"></div>
+</div>
+<div class="relative flex justify-center text-label-caps uppercase">
+<span class="bg-white px-4 text-outline">or</span>
+</div>
+</div>
+<div class="text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            New to CampusHire? 
+                            <a class="text-primary font-title-sm hover:underline" href="#">Create an account</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Trust Badge / Decorative Element -->
+<div class="mt-xl flex items-center justify-center gap-base opacity-50 grayscale">
+<div class="h-8 w-24 bg-slate-200 rounded animate-pulse" data-alt="corporate partner logo placeholder with clean minimal geometry"></div>
+<div class="h-8 w-24 bg-slate-200 rounded animate-pulse" data-alt="academic institution logo placeholder with professional crest aesthetic"></div>
+<div class="h-8 w-24 bg-slate-200 rounded animate-pulse" data-alt="technology provider logo placeholder with modern typography"></div>
+</div>
+</div>
+</main>
+<!-- Shared Footer Component -->
+<footer class="bg-slate-50 border-t border-slate-200">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto gap-4">
+<div class="font-body-sm text-body-sm text-slate-600">
+                © 2024 CampusHire Placement Portal. All rights reserved.
+            </div>
+<div class="flex gap-6">
+<a class="font-body-sm text-body-sm text-slate-500 hover:text-slate-800 transition-all" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-slate-500 hover:text-slate-800 transition-all" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-slate-500 hover:text-slate-800 transition-all" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Placement Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-variant": "#e4e2e4",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "surface-tint": "#565e74",
+                        "primary-container": "#131b2e",
+                        "surface": "#fcf8fa",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-secondary-container": "#57657b",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#bec6e0",
+                        "tertiary-container": "#271901",
+                        "secondary": "#515f74",
+                        "tertiary-fixed": "#fcdeb5",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcd9db",
+                        "on-tertiary-container": "#98805d",
+                        "on-tertiary-fixed": "#271901",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-container": "#f0edef",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "primary": "#000000",
+                        "surface-bright": "#fcf8fa",
+                        "secondary-container": "#d5e3fd",
+                        "inverse-surface": "#303032",
+                        "on-background": "#1b1b1d",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-low": "#f6f3f5",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8fa",
+                        "outline": "#76777d",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "layout-margin": "40px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "title-sm": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-200 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="school">school</span>
+</div>
+<span class="text-lg font-bold text-slate-900">Placement Portal</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-900 p-2 hover:bg-slate-50 transition-colors rounded-full" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a young professional student with a confident smile in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnInwkm_7Li4tXODD9PItpC9GMKQ2HARH6k6bg0ZmLGe_Pvl-4kLkK42o40QsH5PqmUYMQUaAwt6W97UX8QyOrKNax1L6GugkR2YehXtPwe57B8D6mJoXff2g7n42YcNd_ojXN6NSZuWyYCm0YjUe8ahd0zoQMhQQf4a7Xh84I_PuHu_IZaAfaTqGVqO8gcdXCGQMdMPW3NFifF0LBbWHwR1IM3W1ITvSzXk_9T5P5Eiiq8BAvuwNVKXiMJ3y5n-QHXc6I1s-8DGFl"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-6 max-w-7xl mx-auto">
+<section class="mb-xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-xs">Welcome, Alex</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Your placement journey is 65% complete. Stay focused!</p>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md mb-xl">
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Applied Jobs</span>
+<span class="material-symbols-outlined text-primary" data-icon="work">work</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary">12</div>
+<div class="mt-sm font-body-sm text-body-sm text-on-secondary-container">+2 this week</div>
+</div>
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Shortlisted</span>
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary">04</div>
+<div class="mt-sm font-body-sm text-body-sm text-on-secondary-container">Check status updates</div>
+</div>
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Upcoming Interviews</span>
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary">02</div>
+<div class="mt-sm font-body-sm text-body-sm text-on-secondary-container">Next: tomorrow at 10 AM</div>
+</div>
+</section>
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-8">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-primary">Latest Job Postings</h2>
+<button class="font-label-caps text-label-caps text-on-primary-container hover:underline">View All</button>
+</div>
+<div class="space-y-md">
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-md items-start md:items-center">
+<div class="w-14 h-14 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-400" data-icon="brand_family">brand_family</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-title-sm text-title-sm text-primary">Senior Frontend Engineer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nexus Tech Solutions • Remote</p>
+</div>
+<div class="flex gap-sm shrink-0">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[12px] font-semibold rounded-full">Full-time</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[12px] font-semibold rounded-full">$120k - $150k</span>
+</div>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity ml-auto md:ml-0">Apply Now</button>
+</div>
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-md items-start md:items-center">
+<div class="w-14 h-14 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-400" data-icon="data_object">data_object</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-title-sm text-title-sm text-primary">Product Design Intern</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Creative Flow Labs • New York, NY</p>
+</div>
+<div class="flex gap-sm shrink-0">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[12px] font-semibold rounded-full">Internship</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[12px] font-semibold rounded-full">$35/hr</span>
+</div>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity ml-auto md:ml-0">Apply Now</button>
+</div>
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-md items-start md:items-center">
+<div class="w-14 h-14 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-400" data-icon="analytics">analytics</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-title-sm text-title-sm text-primary">Data Analyst</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Insights Global • London, UK</p>
+</div>
+<div class="flex gap-sm shrink-0">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[12px] font-semibold rounded-full">Full-time</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[12px] font-semibold rounded-full">£55k - £70k</span>
+</div>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity ml-auto md:ml-0">Apply Now</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4">
+<div class="bg-primary-container text-white p-lg rounded-xl mb-lg">
+<h2 class="font-title-sm text-title-sm mb-md text-white">Interview Readiness</h2>
+<div class="flex items-center gap-md mb-lg">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-slate-800" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-white" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="61.5" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-label-caps text-[10px]">65%</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-primary-container">Update your portfolio to reach 80% and unlock premium jobs.</div>
+</div>
+<button class="w-full py-sm bg-white text-primary rounded-lg font-label-caps text-label-caps hover:bg-slate-50 transition-colors">Complete Profile</button>
+</div>
+<div class="bg-white p-lg rounded-xl border border-slate-200 shadow-sm">
+<h2 class="font-title-sm text-title-sm text-primary mb-md">Upcoming Events</h2>
+<div class="space-y-md">
+<div class="flex gap-md">
+<div class="shrink-0 w-12 h-12 bg-slate-50 rounded-lg flex flex-col items-center justify-center border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Oct</span>
+<span class="text-lg font-bold text-primary leading-none">24</span>
+</div>
+<div>
+<h4 class="font-body-md font-semibold text-primary">Mock Interview Session</h4>
+<p class="text-[12px] text-on-surface-variant">14:00 - 15:30 • Career Center</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="shrink-0 w-12 h-12 bg-slate-50 rounded-lg flex flex-col items-center justify-center border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Oct</span>
+<span class="text-lg font-bold text-primary leading-none">28</span>
+</div>
+<div>
+<h4 class="font-body-md font-semibold text-primary">Tech Talk: AI in Fintech</h4>
+<p class="text-[12px] text-on-surface-variant">11:00 - 12:00 • Auditorium</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(15,23,42,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-900 bg-slate-100 rounded-xl px-4 py-1.5 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-slate-700 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-slate-700 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider">Applications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-slate-700 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

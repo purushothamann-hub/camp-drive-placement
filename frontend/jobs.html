@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings | Campus Placement Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAFC]">
+    <!-- Mobile Bottom Nav -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white border-t border-slate-200 flex justify-around p-3">
+        <a href="dashboard.html" class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="text-[10px] font-medium">Dashboard</span>
+        </a>
+        <a href="jobs.html" class="flex flex-col items-center gap-1 text-primary">
+            <span class="material-symbols-outlined font-fill-1">work</span>
+            <span class="text-[10px] font-bold">Jobs</span>
+        </a>
+        <a href="applications.html" class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-symbols-outlined">assignment_turned_in</span>
+            <span class="text-[10px] font-medium">Applied</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px] font-medium">Profile</span>
+        </a>
+    </nav>
+
+    <!-- Desktop Sidebar -->
+    <aside class="hidden md:flex fixed inset-y-0 left-0 w-72 bg-white border-r border-slate-200 flex-col z-40">
+        <div class="p-8"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"><span class="material-symbols-outlined">school</span></div><span class="text-xl font-bold tracking-tight text-primary">CampusDrive</span></div></div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="dashboard.html" class="sidebar-link">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-semibold">Dashboard</span>
+            </a>
+            <a href="jobs.html" class="sidebar-link active">
+                <span class="material-symbols-outlined">work</span>
+                <span class="font-semibold">Job Listings</span>
+            </a>
+            <a href="applications.html" class="sidebar-link">
+                <span class="material-symbols-outlined">fact_check</span>
+                <span class="font-semibold">My Applications</span>
+            </a>
+            <a href="profile.html" class="sidebar-link">
+                <span class="material-symbols-outlined">account_circle</span>
+                <span class="font-semibold">Career Profile</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="md:ml-72 min-h-screen pb-20 md:pb-0">
+        <!-- Top Bar -->
+        <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-slate-900 md:block hidden">Explore Opportunities</h1>
+            <div class="relative max-w-sm w-full">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                <input type="text" placeholder="Search roles or companies..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all outline-none">
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="md:hidden p-2 text-primary bg-slate-100 rounded-xl"><span class="material-symbols-outlined">filter_list</span></button>
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-slate-200"><img src="https://i.pravatar.cc/100?u=arjun" alt="Profile" class="w-full h-full object-cover"></div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto flex flex-col md:flex-row p-6 md:p-10 gap-10">
+            <!-- Desktop Filters -->
+            <aside class="hidden md:block w-64 shrink-0 space-y-8">
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Job Type</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" checked class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary">
+                            <span class="text-slate-600 group-hover:text-primary transition-colors">Full-time</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary">
+                            <span class="text-slate-600 group-hover:text-primary transition-colors">Internship</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary">
+                            <span class="text-slate-600 group-hover:text-primary transition-colors">Remote</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Experience</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="radio" name="exp" checked class="w-5 h-5 border-slate-300 text-primary focus:ring-primary">
+                            <span class="text-slate-600 group-hover:text-primary transition-colors">Fresher (0-1 yr)</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="radio" name="exp" class="w-5 h-5 border-slate-300 text-primary focus:ring-primary">
+                            <span class="text-slate-600 group-hover:text-primary transition-colors">Junior (1-3 yrs)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Salary Range</h3>
+                    <input type="range" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary">
+                    <div class="flex justify-between text-xs font-bold text-slate-500 mt-2">
+                        <span>5 LPA</span>
+                        <span>50 LPA</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Job List -->
+            <div class="flex-grow space-y-6">
+                <div class="flex justify-between items-center mb-2">
+                    <p class="text-slate-500 font-medium">Showing <span class="text-slate-900 font-bold">142</span> jobs for you</p>
+                    <select class="bg-white border border-slate-200 rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-primary">
+                        <option>Newest First</option>
+                        <option>Highest Salary</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 animate-fade-in">
+                    <!-- Job Item -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-primary transition-all group flex flex-col md:flex-row gap-6 relative">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0 group-hover:bg-primary/5 transition-colors">
+                            <img src="https://logo.clearbit.com/google.com" alt="Google" class="w-10 h-10 object-contain">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">Cloud Solutions Architect</h3>
+                                    <p class="font-semibold text-slate-500">Google Cloud Platform</p>
+                                </div>
+                                <span class="bg-green-100 text-green-700 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Actively Hiring</span>
+                            </div>
+                            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500 mb-6">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">location_on</span> Hyderabad, India</span>
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">payments</span> 24-32 LPA</span>
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">schedule</span> Deadline: Oct 12</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">Kubernetes</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">Go Lang</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">AWS/GCP</span>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col md:justify-between items-center md:items-end gap-4 shrink-0 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-slate-100 px-0 md:pl-6">
+                            <button class="flex-grow md:flex-grow-0 p-3 bg-slate-50 text-slate-400 rounded-xl hover:text-primary transition-colors"><span class="material-symbols-outlined">bookmark</span></button>
+                            <a href="job-details.html" class="flex-grow md:flex-grow-0 px-8 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg hover:shadow-primary/20 transition-all text-center">View Specs</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Item 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-primary transition-all group flex flex-col md:flex-row gap-6 relative">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0 group-hover:bg-primary/5 transition-colors">
+                            <img src="https://logo.clearbit.com/tesla.com" alt="Tesla" class="w-10 h-10 object-contain">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">Autonomous Systems Engineer</h3>
+                                    <p class="font-semibold text-slate-500">Tesla Autopilot Team</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500 mb-6">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">location_on</span> Remote</span>
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">payments</span> 40-55 LPA</span>
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">schedule</span> Deadline: Sept 30</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">C++</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">Python</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">Robotics</span>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col md:justify-between items-center md:items-end gap-4 shrink-0 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-slate-100 px-0 md:pl-6">
+                            <button class="p-3 bg-slate-50 text-slate-400 rounded-xl hover:text-primary transition-colors"><span class="material-symbols-outlined">bookmark</span></button>
+                            <a href="job-details.html" class="px-8 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg hover:shadow-primary/20 transition-all text-center">View Specs</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Item 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-primary transition-all group flex flex-col md:flex-row gap-6 relative">
+                        <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 shrink-0 group-hover:bg-primary/5 transition-colors">
+                            <img src="https://logo.clearbit.com/figma.com" alt="Figma" class="w-10 h-10 object-contain">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">Product Design Intern</h3>
+                                    <p class="font-semibold text-slate-500">Figma Design Team</p>
+                                </div>
+                                <span class="bg-blue-100 text-blue-700 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Internship</span>
+                            </div>
+                            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500 mb-6">
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">location_on</span> San Francisco (Relocation Provided)</span>
+                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">payments</span> 8k USD/mo</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">UI/UX</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">Prototyping</span>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col md:justify-between items-center md:items-end gap-4 shrink-0 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-slate-100 px-0 md:pl-6">
+                            <button class="p-3 bg-slate-50 text-slate-400 rounded-xl hover:text-primary transition-colors"><span class="material-symbols-outlined">bookmark</span></button>
+                            <a href="job-details.html" class="px-8 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg hover:shadow-primary/20 transition-all text-center">View Specs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex items-center justify-center gap-2 pt-10">
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-primary transition-all"><span class="material-symbols-outlined">chevron_left</span></button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white font-bold">1</button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all font-bold">2</button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all font-bold">3</button>
+                    <span class="px-2 text-slate-400">...</span>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all font-bold">12</button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-primary transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System | Campus Placement Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#F8FAFC] p-10">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-16">
+            <h1 class="text-5xl font-black text-primary mb-4 tracking-tighter">Institutional Excellence</h1>
+            <p class="text-xl text-slate-500 font-medium leading-relaxed">The visual identity system for the Campus Placement Portal, merging academic prestige with modern corporate efficiency.</p>
+        </header>
+
+        <section class="mb-16">
+            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 border-b border-slate-200 pb-4">Color Palette</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div>
+                    <div class="h-24 bg-primary rounded-2xl mb-3 shadow-lg"></div>
+                    <p class="font-bold text-slate-900">Primary</p>
+                    <p class="text-xs text-slate-400 font-mono">#0F172A</p>
+                </div>
+                <div>
+                    <div class="h-24 bg-slate-500 rounded-2xl mb-3 shadow-md"></div>
+                    <p class="font-bold text-slate-900">Secondary</p>
+                    <p class="text-xs text-slate-400 font-mono">#334155</p>
+                </div>
+                <div>
+                    <div class="h-24 bg-blue-500 rounded-2xl mb-3 shadow-blue-500/10 shadow-lg"></div>
+                    <p class="font-bold text-slate-900">Accent</p>
+                    <p class="text-xs text-slate-400 font-mono">#3B82F6</p>
+                </div>
+                <div>
+                    <div class="h-24 bg-white border border-slate-100 rounded-2xl mb-3 shadow-sm"></div>
+                    <p class="font-bold text-slate-900">Surface</p>
+                    <p class="text-xs text-slate-400 font-mono">#FFFFFF</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 border-b border-slate-200 pb-4">Typography</h2>
+            <div class="space-y-8">
+                <div>
+                    <p class="text-xs text-slate-400 font-mono mb-2">Display Large (Inter Bold 36px)</p>
+                    <h1 class="text-4xl font-bold text-primary">The portal for the next generation of leaders.</h1>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400 font-mono mb-2">Headline Medium (Inter Semi-Bold 24px)</p>
+                    <h2 class="text-2xl font-semibold text-slate-900">Your placement journey begins here.</h2>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400 font-mono mb-2">Body Medium (Inter Regular 16px)</p>
+                    <p class="text-slate-500 leading-relaxed">Connect with top-tier companies, track your applications, and land your dream job with our comprehensive placement portal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 border-b border-slate-200 pb-4">Components</h2>
+            <div class="space-y-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+                    <button class="bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-slate-200 hover:opacity-90 transition-all">Primary Action</button>
+                    <button class="bg-white text-primary border border-slate-200 px-6 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all">Secondary</button>
+                    <button class="text-primary font-bold hover:underline">Ghost Button</button>
+                    <button class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg"><span class="material-symbols-outlined">add</span></button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-black text-slate-400 uppercase">Status</span>
+                            <span class="px-2 py-0.5 bg-green-50 text-green-700 text-[10px] font-black rounded-full uppercase">Placed</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Data card example</h4>
+                        <p class="text-sm text-slate-500 mt-1">This card demonstrates the elevation and spacing of the system.</p>
+                    </div>
+                    
+                    <div class="flex flex-col gap-4">
+                        <input type="text" placeholder="Default Input" class="px-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300">search</span>
+                            <input type="text" placeholder="Icon Input" class="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition-all">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-20 pt-10 border-t border-slate-100 flex justify-between items-center text-slate-400 text-sm italic">
+            <span>&copy; 2026 Institutional Excellence Design System</span>
+            <a href="index.html" class="not-italic font-bold text-primary hover:underline">Go to Live Portal &rarr;</a>
+        </footer>
+    </div>
+</body>
+</html>

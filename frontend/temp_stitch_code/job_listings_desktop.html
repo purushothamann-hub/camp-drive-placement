@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Listings | PlacementPortal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dae2fd",
+                        "on-background": "#1b1b1d",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#271901",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary": "#000000",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#eae7e9",
+                        "outline": "#76777d",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#d5e3fd",
+                        "surface-container": "#f0edef",
+                        "secondary": "#515f74",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "surface": "#fcf8fa",
+                        "primary": "#000000",
+                        "on-tertiary-fixed": "#271901",
+                        "surface-tint": "#565e74",
+                        "outline-variant": "#c6c6cd",
+                        "on-secondary-container": "#57657b",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-dim": "#dcd9db",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-variant": "#e4e2e4",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fcf8fa",
+                        "secondary-fixed": "#d5e3fd",
+                        "on-surface-variant": "#45464d",
+                        "inverse-surface": "#303032",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-surface": "#1b1b1d",
+                        "on-tertiary-container": "#98805d",
+                        "surface-bright": "#fcf8fa",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "surface-container-low": "#f6f3f5",
+                        "primary-fixed-dim": "#bec6e0",
+                        "primary-container": "#131b2e",
+                        "inverse-primary": "#bec6e0",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "layout-margin": "40px"
+                    },
+                    "fontFamily": {
+                        "title-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-sm": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between px-6 py-3 w-full">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold text-slate-900 dark:text-slate-50 tracking-tight">PlacementPortal</span>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex items-center gap-6 font-sans antialiased text-sm font-medium Inter">
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Dashboard</a>
+<a class="text-slate-900 dark:text-slate-50 font-semibold px-3 py-1 rounded-lg" href="#">Jobs &amp; Internships</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">My Applications</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-slate-900 focus:border-slate-900 outline-none w-64 bg-slate-50" placeholder="Search opportunities..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-50 p-2 rounded-full transition-all active:scale-95 duration-150" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-50 p-2 rounded-full transition-all active:scale-95 duration-150" data-icon="help">help</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden border border-slate-200">
+<img alt="User Profile Avatar" data-alt="Close-up professional portrait of a young adult student for a profile avatar, clean studio background, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLRF9sEVkY5wtDmTQGESbL6srtpDVHGCj95sTf5dV9CRIE3x2EspyuaBxCNSFt-UVs9Nq6MhFYsQygJCw2kGVfgNVEQLdb6ju4P3PenMyHYPn4jyyoYkHc7gwSBY6Fy98vasNNGioCmNQAg-IG3Zy3T0CqafRG-UMFsYylKgX03Ew9dgrvHv26c0gD8Vgpqw066qaTy6V2GEaiwr_kvdGfg6MIJsKJfo-A1ku5e21Tl9GEVdRHO-RjN5tgnwtCXMucHxDuAlP7rfGQ"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-72 border-r hidden lg:flex flex-col bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 py-6 z-30">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-900 dark:text-white leading-tight">CampusDrive</h1>
+<p class="text-[12px] text-slate-500 font-medium">Student Edition</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-4">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-sans text-[14px]">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold border-r-4 border-slate-900 dark:border-slate-50 px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="work" data-weight="fill" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-sans text-[14px]">Jobs &amp; Internships</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-sans text-[14px]">My Applications</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-sans text-[14px]">Interview Prep</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-sans text-[14px]">Career Profile</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<div class="mx-4 p-4 bg-slate-900 rounded-xl mb-6">
+<p class="text-white text-xs font-semibold mb-2">Upcoming Drive</p>
+<p class="text-slate-400 text-[11px] mb-3 leading-relaxed">TechCorp Solutions visiting on Oct 24th.</p>
+<button class="w-full py-2 bg-white text-slate-900 text-xs font-bold rounded-lg hover:bg-slate-100 transition-colors">View Upcoming Drives</button>
+</div>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-2 hover:bg-slate-50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[14px]">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-2 hover:bg-slate-50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="text-[14px]">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-72 min-h-screen">
+<div class="max-w-[1440px] mx-auto p-layout-margin">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-4">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-background mb-1">Open Opportunities</h2>
+<p class="font-body-md text-secondary">Discover roles tailored to your profile from 150+ partner companies.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 bg-white rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                            Filter
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 bg-white rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-all">
+                            Sort: Latest
+                            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Bento-ish Grid of Job Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Card 1: Active -->
+<div class="bg-white rounded-xl border border-slate-200 p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Google Logo" data-alt="Clean minimalist tech company logo with professional branding on a white square background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP9Iicq8wTxkwQdx30gHQEhjAfe22XfjcYtrcQ2HLBdU2RhRStXgv0J_LnP3Y2lUaPlTS6kzw2er3uKjqb6YJ3hUo0e4MCjjU8EF0ZS3uDpSaKpPyTYpoldUSYy1tdRue_JsEyaozZyrsiMrE6pU3tnNRcrWC1uwZcDYgwoz-HaYrOEMqteN2T26_WXXc5VfWDNwaec_oSeXuEvCMpoE8nT5qbZZm5yzqO5LQqfe24ozQgkhUIlEyQ_VY-XsRL0C9k28haSDrfrLPi"/>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[12px] font-semibold bg-emerald-50 text-emerald-700">New Opening</span>
+</div>
+<div class="mb-4 flex-1">
+<h3 class="font-title-sm text-title-sm text-slate-900 mb-0.5">Software Engineer I</h3>
+<p class="text-slate-500 font-medium mb-3">Google Cloud</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Deadline: Oct 30, 2023</span>
+</div>
+<div class="flex items-start gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">info</span>
+<span>CGPA &gt; 8.5, B.Tech CS/IT students only. Full-time role in Bangalore.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-50">
+<button class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Card 2: Applied -->
+<div class="bg-white rounded-xl border border-slate-200 p-lg shadow-sm flex flex-col h-full opacity-90">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Microsoft Logo" data-alt="Professional corporate logo with minimalist geometric shapes on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsSTXRKoYTUIXF92IbeV76ponW0l01a90h6yHuuWy9oMMX2CtGysfJAKT5G__Z7ZyuUbluFk5v8k3-og_A7GTPewxk8-Br_UrJv-azJHYHDLzEzApAD38kzAkq6Ih9SBkxeXWtOOFZ83yWteZcXW2lI7IjUEe3IP45XMWElILUqZ_mfpu31QmQrSvbPTrsUA2xdgPev5lWgd-Yez0HkbMGzyBABQNRHVC7H8fPr7V_1O9VT1cxWc7j5eDNTavWUM2iVwhZAA1phrfb"/>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[12px] font-semibold bg-slate-100 text-slate-600">Already Applied</span>
+</div>
+<div class="mb-4 flex-1">
+<h3 class="font-title-sm text-title-sm text-slate-900 mb-0.5">Product Management Intern</h3>
+<p class="text-slate-500 font-medium mb-3">Microsoft India</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Deadline: Oct 22, 2023</span>
+</div>
+<div class="flex items-start gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">info</span>
+<span>Open for MBA &amp; Pre-final year Engineering students. Remote possible.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-50">
+<button class="w-full py-2.5 bg-slate-100 text-slate-400 font-bold rounded-lg cursor-not-allowed" disabled="">Application Submitted</button>
+</div>
+</div>
+<!-- Card 3: Not Eligible -->
+<div class="bg-slate-50 rounded-xl border border-slate-200 p-lg shadow-none flex flex-col h-full grayscale-[0.5]">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-white rounded-lg border border-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Amazon Logo" data-alt="Modern retail technology giant logo, clean and recognizable design on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVLs-warVhiJdCs7Slv3Uyn6aSTtMtA5SUZOhtrvle2db5Oz_xG-6_gu_dyW9X7T0yiwqxCqB6TsXj7o9ouCYy4Oj-IyX1qZVlfsX3oMN89sYIF3rNpkebXYWbJmvPyumbMn_tommpnpK47B1MRKCRuiHNZu8fgnCgxXFoRI1HDMthwdiX2Avr73w9Ggg2a1DxwFp1_vykndf4HIAijYeSLFxfyIPU-3QsVwdr5MrMWbAxhkj8pwUei-WWwgQHVOZEc6tGG2xD-eqi"/>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[12px] font-semibold bg-red-50 text-red-700">Not Eligible</span>
+</div>
+<div class="mb-4 flex-1">
+<h3 class="font-title-sm text-title-sm text-slate-400 mb-0.5">Data Scientist</h3>
+<p class="text-slate-400 font-medium mb-3">Amazon Web Services</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-slate-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Deadline: Nov 05, 2023</span>
+</div>
+<div class="flex items-start gap-2 text-slate-400 text-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">error_outline</span>
+<span>Requires Masters or PhD in Statistics/Mathematics. CGPA &gt; 9.0.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200">
+<button class="w-full py-2.5 bg-white border border-slate-200 text-slate-400 font-bold rounded-lg cursor-not-allowed" disabled="">View Eligibility Details</button>
+</div>
+</div>
+<!-- Card 4: Urgent -->
+<div class="bg-white rounded-xl border-l-4 border-l-slate-900 border-slate-200 p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Zomato Logo" data-alt="Vibrant tech-startup logo with modern typography and bold color palette on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Zj7Gei0fIWWxvhZ_kDX-dukGNf1AbZU_yCHp3hmWV6JXgrRTwjoRaMkrbXhtfEpkes4NtUM6Qo7OdqnWndKNnGO1nDGnja0APtp7GomGi-RTBbu2_paMXkKGAC5rNwlbg2EQ8tMn_0GXudYU0I2gQDJIIsOrebMZ7iZu_NKTSV7t27fpkKVvvs4fTRw1nPs0kZyDSVoAfnQrJ_EA_MU4lALXt74Ls7cQQaA9SJeUtkHlnrUWjqAusTVXculk3kBS5u4LKkGl-vsN"/>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[12px] font-semibold bg-orange-50 text-orange-700">Closing Soon</span>
+</div>
+<div class="mb-4 flex-1">
+<h3 class="font-title-sm text-title-sm text-slate-900 mb-0.5">Associate Business Analyst</h3>
+<p class="text-slate-500 font-medium mb-3">Zomato Ltd.</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-bold text-red-600 underline">Deadline: Today, 6:00 PM</span>
+</div>
+<div class="flex items-start gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">info</span>
+<span>Any branch eligible. Strong analytical and SQL skills required.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-50">
+<button class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-white rounded-xl border border-slate-200 p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Adobe Logo" data-alt="Creative software company logo with distinct red branding elements on white square background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRhswLJ2oV11DO939ZO8_tqqQd6z8UTTFJF5khpPyy-_prSR5zCUODY0MfIKgDHVxuk4LzS0vdVMnqGFBzEeKyj8P0FQLIvvm7soIG6KNWvosnvoC_Rl85R1tztqD7mADFE7zNksrlBuX0tLcgCToVNFXHBC1nwh7WIVcPag0zYBNIHS3B-DmcfXSMCpJG1w1wPmh-t_rNTe4AKOUh3w0ekpvorq6BHAwc7ICfpFJB56i5FWr-_kFKkCbcgSfBxrBk9oKBtdkMKMSh"/>
+</div>
+</div>
+<div class="mb-4 flex-1">
+<h3 class="font-title-sm text-title-sm text-slate-900 mb-0.5">Frontend Developer Intern</h3>
+<p class="text-slate-500 font-medium mb-3">Adobe Systems</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Deadline: Nov 12, 2023</span>
+</div>
+<div class="flex items-start gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">info</span>
+<span>Knowledge of React, Tailwind, and Framer Motion. stipend: 60k/mo.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-50">
+<button class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-white rounded-xl border border-slate-200 p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center overflow-hidden">
+<img alt="Uber Logo" data-alt="Modern transportation network company logo, minimalist black and white typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ktYWoZUs9zlPyc7KD2Si6FmXlnNZZzyI9Rbn-rR2855ou5Vl9ENlB75R7_BY4GPtBLMc8Wtp5vVN3ykQKilgthz_Hyqa9eRQq2wgRm3AQ01UWj88vgPgH8AuZI1c5wzFlDhitJdpLCyHkVqwBtcoLSe-U73KTSRiS-VLNib84kOGL3F4BTl5ezXiL-dbExSEuMRRi6IVout_0xr9mZM6V3zA69qs4dV-3-vp-DS3A-KrnVkGhsLlIL3Fye_SWIYjAJSHqUAJ9PPP"/>
+</div>
+</div>
+<div class="mb-4 flex-1">
+<h3 class="font-title-sm text-title-sm text-slate-900 mb-0.5">Operations Coordinator</h3>
+<p class="text-slate-500 font-medium mb-3">Uber Tech</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Deadline: Nov 20, 2023</span>
+</div>
+<div class="flex items-start gap-2 text-slate-600 text-sm">
+<span class="material-symbols-outlined text-[18px] mt-0.5">info</span>
+<span>Open for graduates from all streams. 6-month probation period.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-50">
+<button class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 active:scale-95 transition-all">Apply Now</button>
+</div>
+</div>
+</div>
+<!-- Footer info / Pagination -->
+<div class="mt-xl flex items-center justify-between pt-lg border-t border-slate-200">
+<p class="text-sm text-slate-500">Showing 6 of 148 active job listings</p>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-white text-slate-400 cursor-not-allowed">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-4 py-2 bg-slate-900 text-white rounded-lg text-sm font-bold">1</button>
+<button class="px-4 py-2 hover:bg-white border border-transparent hover:border-slate-200 rounded-lg text-sm text-slate-600 transition-all">2</button>
+<button class="px-4 py-2 hover:bg-white border border-transparent hover:border-slate-200 rounded-lg text-sm text-slate-600 transition-all">3</button>
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-white text-slate-600 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
