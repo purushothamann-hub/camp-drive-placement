@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Placement Portal - My Applications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-variant": "#e4e2e4",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "surface-tint": "#565e74",
+                        "primary-container": "#131b2e",
+                        "surface": "#fcf8fa",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-secondary-container": "#57657b",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#bec6e0",
+                        "tertiary-container": "#271901",
+                        "secondary": "#515f74",
+                        "tertiary-fixed": "#fcdeb5",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcd9db",
+                        "on-tertiary-container": "#98805d",
+                        "on-tertiary-fixed": "#271901",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-container": "#f0edef",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "primary": "#000000",
+                        "surface-bright": "#fcf8fa",
+                        "secondary-container": "#d5e3fd",
+                        "inverse-surface": "#303032",
+                        "on-background": "#1b1b1d",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-low": "#f6f3f5",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8fa",
+                        "outline": "#76777d",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "layout-margin": "40px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "title-sm": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Canvas background per style guidance */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="Close-up professional headshot of a student in a business suit with a neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2G5qpfe516npenjZ1Kgyhx5yQVRoRVXH1Qtgx5zjxKSMVmuNwTrgHfTkRDZY5rCWFQGGSa1GpmUBgn7OeN3PKwhzOlyI40dPlhfxw0j0OHOLZeR1PHWiDMnF8J9yO9zRTjrBuBP1ETjMRrRweRCsPdhtDkBFAHPwHvUICJHCP6rpqGYKxAmeNQKkdm5XMwynwHPB8fskFjwCm476XtW6n0qC52jmzhcFyWg-RVdSPDZjcX_M11EzntCLJ6XgtaQ5tEOFZvYU1CHuw"/>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-slate-50">Placement Portal</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 p-2 rounded-full transition-colors" data-icon="notifications">notifications</button>
+</div>
+</header>
+<main class="pt-20 pb-24 px-6 max-w-7xl mx-auto">
+<!-- Page Title -->
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md text-slate-900">My Applications</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Track and manage your professional career journey.</p>
+</div>
+<!-- Dashboard Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Stats Row -->
+<div class="col-span-12 md:col-span-4 bg-white p-lg rounded-xl border border-slate-200 shadow-[0_4px_12px_rgba(15,23,42,0.05)]">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Applied</span>
+<span class="material-symbols-outlined text-slate-400" data-icon="send">send</span>
+</div>
+<div class="font-display-lg text-display-lg text-slate-900">12</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-white p-lg rounded-xl border border-slate-200 shadow-[0_4px_12px_rgba(15,23,42,0.05)]">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Shortlisted</span>
+<span class="material-symbols-outlined text-blue-500" data-icon="verified">verified</span>
+</div>
+<div class="font-display-lg text-display-lg text-slate-900">04</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-white p-lg rounded-xl border border-slate-200 shadow-[0_4px_12px_rgba(15,23,42,0.05)]">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Success Rate</span>
+<span class="material-symbols-outlined text-green-500" data-icon="trending_up">trending_up</span>
+</div>
+<div class="font-display-lg text-display-lg text-slate-900">33%</div>
+</div>
+<!-- Applications Table Container -->
+<div class="col-span-12 bg-white rounded-xl border border-slate-200 shadow-[0_4px_12px_rgba(15,23,42,0.05)] overflow-hidden">
+<div class="px-lg py-md border-b border-slate-100 flex items-center justify-between">
+<h2 class="font-title-sm text-title-sm text-slate-900">Recent Activity</h2>
+<div class="flex gap-2">
+<button class="p-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-slate-600 block" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50">
+<th class="px-lg py-md font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider border-b border-slate-100">Company</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider border-b border-slate-100">Role</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider border-b border-slate-100">Applied Date</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider border-b border-slate-100">Status</th>
+<th class="px-lg py-md font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider border-b border-slate-100 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Selected State -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist technology company logo with clean geometric lines on a soft grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuk2s9IagLuNrPRKnUQLCzXZBcEacgu8TXKHsrasT7fVrBrKsm-Miw8o_Nc7NN_7NAwXFAQP6emZQ8CSEbn3RObqaQRkTobvxD_8Z7zTcuqAWVAhdaBh8MBjY4sse5zjFRkZ6srX2olJPJj55Eom309UN82g8AX9kMj4LEMbMClSz00pxJaPqYosfvZVeaUnhSVqNI9bfYQfnuoE19gduJ56mawzqF62qHSwoZg8KRkKpSNby4kfGdK2YrHe1vHcx-us-hvtuU1nVX"/>
+</div>
+<span class="font-body-md text-body-md text-slate-900 font-semibold">Nexus AI</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-slate-700">Senior Product Designer</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 uppercase tracking-wide">
+                                        Selected
+                                    </span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="material-symbols-outlined text-slate-400 group-hover:text-slate-600" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<!-- Shortlisted State -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Sleek corporate logo for a venture capital firm featuring bold typography and professional blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmJpZ27Dx9A40WYnCFvPVIfltcW__UfbViaLEpgwe23imLHACC1bW8sbxBFE1XonhqAuVBQrn0LOB_ulY51ftTKi9yJkV0579sCgR9PzijuK4XbQd46iQHQlomlhKM4egYbXT6yPITGHv6oDSr5h2l7t4U4X35VanAAOM7OkBdEn9tM8Km-1hIY3PRFT0YH8Aa3fppnk1jcifxB7c97ryWx-b0fKGAMHC4bd0DiQX2qJWrm3uI0uwUNbFJrw6wtzRq6ixaBXsZ2E_r"/>
+</div>
+<span class="font-body-md text-body-md text-slate-900 font-semibold">Vanguard Systems</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-slate-700">Frontend Engineer</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Oct 20, 2023</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 uppercase tracking-wide">
+                                        Shortlisted
+                                    </span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="material-symbols-outlined text-slate-400 group-hover:text-slate-600" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<!-- Applied State -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern branding for a healthcare startup with clean minimalist icon and soft professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoXIcwIjVOiahCNPwU5Jec6l89Vk2IlF_nkPcc1-iWCHjp4_q0JSKjs7DzhK24hUEgrExouMFg8WO-qHmSR_S7TydRDmpzBIJgTyJ2e1JqW3h0LOIww1q3EeGehwbI8Tpe3a2Myog7_4qib0FI0x1KGXIoYSlTFmfY8NNW8Hyl49wUe1Qb2nWl4V_O-XyzsCIxx3UgoQJUJ-RntaMpfXX0raBWruR8H55VgUsDymNcuedQauY9hVduwxUIAyFfIJfDuHWdGMlwhEqc"/>
+</div>
+<span class="font-body-md text-body-md text-slate-900 font-semibold">Horizon Health</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-slate-700">Data Analyst</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Oct 18, 2023</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-200 text-slate-700 uppercase tracking-wide">
+                                        Applied
+                                    </span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="material-symbols-outlined text-slate-400 group-hover:text-slate-600" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<!-- Rejected State -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Abstract corporate logo design for a consulting group with sophisticated navy and silver accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO0HPDw7Jp_G45YV89Hr9YIPANLO3qWWDFpumIdma87_ZO0u1wRBYWEGKWlhiy4iIt-fvkYGhPGngJmi0RbL1NvH2lX4XC0Jq1mrP6HFUn8nG3G1F6MLYIY4LM4VBVPQca5L534WegKPMNSK59IfAtHWqssbk-1dgR0VaxFZJwX1BkWpZTyh0wq7AN9qmi8bDjTHHgsiNWA4SCNG41iqi7dxcsEIZwvHBKYYmWR8upN5x30AY7blv7a8yx8d3FySEeo57b2oEo0ljx"/>
+</div>
+<span class="font-body-md text-body-md text-slate-900 font-semibold">Cloud Scale</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-slate-700">DevOps Specialist</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">Oct 12, 2023</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 uppercase tracking-wide">
+                                        Rejected
+                                    </span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="material-symbols-outlined text-slate-400 group-hover:text-slate-600" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-lg py-md bg-slate-50/30 border-t border-slate-100 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1-4 of 12 applications</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-slate-200 rounded-md text-sm font-medium hover:bg-white transition-colors">Previous</button>
+<button class="px-3 py-1 border border-slate-200 rounded-md text-sm font-medium hover:bg-white transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(15,23,42,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-4 py-1.5 hover:text-slate-700 dark:hover:text-slate-200 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-4 py-1.5 hover:text-slate-700 dark:hover:text-slate-200 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800 rounded-xl px-4 py-1.5 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider mt-1">Applications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-4 py-1.5 hover:text-slate-700 dark:hover:text-slate-200 transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

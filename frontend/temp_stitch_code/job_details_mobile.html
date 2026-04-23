@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e4e2e4",
+                    "surface-variant": "#e4e2e4",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "on-secondary-fixed-variant": "#3a485c",
+                    "surface-tint": "#565e74",
+                    "primary-container": "#131b2e",
+                    "surface": "#fcf8fa",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "inverse-on-surface": "#f3f0f2",
+                    "on-secondary-container": "#57657b",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#bec6e0",
+                    "tertiary-container": "#271901",
+                    "secondary": "#515f74",
+                    "tertiary-fixed": "#fcdeb5",
+                    "tertiary": "#000000",
+                    "outline-variant": "#c6c6cd",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1b1b1d",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dcd9db",
+                    "on-tertiary-container": "#98805d",
+                    "on-tertiary-fixed": "#271901",
+                    "secondary-fixed": "#d5e3fd",
+                    "surface-container": "#f0edef",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "primary": "#000000",
+                    "surface-bright": "#fcf8fa",
+                    "secondary-container": "#d5e3fd",
+                    "inverse-surface": "#303032",
+                    "on-background": "#1b1b1d",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container-low": "#f6f3f5",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-primary-container": "#7c839b",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fcf8fa",
+                    "outline": "#76777d",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae7e9",
+                    "primary-fixed": "#dae2fd",
+                    "on-primary-fixed-variant": "#3f465c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "layout-margin": "40px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "title-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-sm": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface hover:bg-slate-50 p-2 rounded-full transition-colors">arrow_back</button>
+<span class="text-lg font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Placement Portal</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100 p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male in a clean studio setting with soft natural lighting and minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCb367PptTjX7Y2xD6RwIrdWWv6hOraOADqPjao-_ISbnWemEQ10N-8maZeMIT_edM-fkGGHm0Ernqs3vthzrneP9sS5YSAa7o_frT5CZKv8LpQLngqH7NsgXRXV7DHKtr-pEfRdzO6pU5bwVZXOmCiQTlGmNf3z0qEV6B5IT33uQzRG4NO6-ez68sJP_-VjByuADwGaaPcJGGvhobxqLQZ5wuC1RCHAKk0VcDAP28Ygnhw5VmxOUtJv25305YveBWqzcuM8FjrzB9"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-24 pb-32 px-layout-margin max-w-5xl mx-auto w-full">
+<!-- Job Header Section -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div class="flex items-start gap-md">
+<div class="w-16 h-16 md:w-24 md:h-24 rounded-xl bg-white border border-outline-variant flex items-center justify-center p-md shadow-sm">
+<img alt="Company Logo" class="w-full h-full object-contain" data-alt="Minimalist abstract corporate logo featuring geometric shapes in deep navy and silver on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeDb6rCuCCUb5cHy6Dm-6tEZ255-tu-XE2f90ZWjeIizhlxNvFdm3VvqQsDoPCue3RYGl_y27W_E3bkfyvVHkiuyP6YU3qT6Gx6EBpEQ-uoF0aquaL50Nxllgv1TNoHdfo_8xzDwKJNIoDEjr-v_f_G8bMkuCObc5oT_tKqdCHhH4vL1FzAQErWFDMFiX9rMzJZIJ14KCuG3A-H0n8PPlShu4inOvU5oUK7KSJHsGG7wJBcp0JGAi9_xn4MQIh9ng-rKA6deduz570"/>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-caps text-label-caps text-on-secondary-container bg-secondary-container px-2 py-0.5 rounded w-fit">FULL-TIME</span>
+<h1 class="font-display-lg text-display-lg text-primary">Senior Software Engineer</h1>
+<p class="font-title-sm text-title-sm text-on-surface-variant">Quantum Systems Inc.</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Bangalore, India (Remote Friendly)</span>
+</div>
+</div>
+</section>
+<!-- Bento Layout for Content -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Main Content Column -->
+<div class="lg:col-span-2 flex flex-col gap-lg">
+<!-- Job Description -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm">
+<h2 class="font-headline-md text-headline-md mb-md flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Job Description
+                    </h2>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-md leading-relaxed">
+<p>As a Senior Software Engineer at Quantum Systems, you will be at the forefront of building scalable, cloud-native solutions that power the next generation of financial infrastructure. You will collaborate with cross-functional teams to design, develop, and maintain robust microservices using modern technology stacks.</p>
+<p>We are looking for individuals who are passionate about code quality, performance optimization, and mentoring junior talent within the placement ecosystem.</p>
+</div>
+</div>
+<!-- Eligibility Criteria -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm">
+<h2 class="font-headline-md text-headline-md mb-md flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+                        Eligibility Criteria
+                    </h2>
+<ul class="space-y-md">
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-secondary-container mt-1" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">B.Tech/B.E in Computer Science, Information Technology or related fields.</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-secondary-container mt-1" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Minimum CGPA of 8.0 or above with no active backlogs.</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-secondary-container mt-1" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Proficiency in Java, Go, or Python and understanding of distributed systems.</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-secondary-container mt-1" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Strong problem-solving skills and data structures knowledge.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Sidebar Column -->
+<div class="lg:col-span-1 flex flex-col gap-lg">
+<!-- Important Dates Card -->
+<div class="bg-primary-container text-on-primary-fixed p-lg rounded-xl shadow-md border border-on-primary-fixed-variant">
+<h2 class="font-headline-md text-headline-md text-white mb-md flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+                        Key Dates
+                    </h2>
+<div class="space-y-lg">
+<div class="flex flex-col gap-xs">
+<span class="font-label-caps text-label-caps text-on-primary-container uppercase">Application Opens</span>
+<span class="font-title-sm text-title-sm text-white">October 15, 2023</span>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-caps text-label-caps text-on-primary-container uppercase">Deadline</span>
+<span class="font-title-sm text-title-sm text-error">November 02, 2023</span>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-caps text-label-caps text-on-primary-container uppercase">Interview Window</span>
+<span class="font-title-sm text-title-sm text-white">Nov 10 - Nov 20, 2023</span>
+</div>
+</div>
+</div>
+<!-- Compensation Info -->
+<div class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-sm uppercase">Package Offer</h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-primary">₹24.5</span>
+<span class="font-title-sm text-title-sm text-on-surface-variant">LPA</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">+ Performance Bonuses &amp; Equity</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Apply Now) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between shadow-[0_-4px_12px_rgba(15,23,42,0.05)]">
+<div class="hidden md:flex items-center gap-md">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-body-md">Save for Later</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+<span class="font-body-md">Share Job</span>
+</button>
+</div>
+<div class="flex items-center gap-md w-full md:w-auto">
+<button class="md:hidden flex-1 py-3 px-6 rounded-xl border border-outline font-title-sm text-on-surface hover:bg-slate-50 transition-all">Save</button>
+<button class="flex-1 md:flex-none bg-primary text-on-primary px-12 py-3 rounded-xl font-title-sm hover:opacity-90 active:scale-95 transition-all shadow-lg">
+                Apply Now
+            </button>
+</div>
+</footer>
+<!-- Bottom Navigation Shell (Labels/Icons) - Mobile Only Placeholder as per rules -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(15,23,42,0.05)] translate-y-full opacity-0">
+<!-- Hidden for Task Focused Page (Apply Flow) -->
+</nav>
+</body></html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register | Placement Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-variant": "#e4e2e4",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "surface-tint": "#565e74",
+                        "primary-container": "#131b2e",
+                        "surface": "#fcf8fa",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-secondary-container": "#57657b",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#bec6e0",
+                        "tertiary-container": "#271901",
+                        "secondary": "#515f74",
+                        "tertiary-fixed": "#fcdeb5",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcd9db",
+                        "on-tertiary-container": "#98805d",
+                        "on-tertiary-fixed": "#271901",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-container": "#f0edef",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "primary": "#000000",
+                        "surface-bright": "#fcf8fa",
+                        "secondary-container": "#d5e3fd",
+                        "inverse-surface": "#303032",
+                        "on-background": "#1b1b1d",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-low": "#f6f3f5",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8fa",
+                        "outline": "#76777d",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "layout-margin": "40px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "title-sm": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8fa;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .canvas-bg {
+            background-color: #F8FAFC;
+        }
+        .container-shadow {
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="canvas-bg min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">school</span>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Placement Portal</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Avatar" data-alt="close-up portrait of a professional young man in a clean white studio background with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJsDc3DUCUCeICJbgiRTIyyVgyCzXCoDgm8Z01AOcYzRK-upr5P4iD9pqHwXGgts5a9DLvI2fTiNCjGpt3_403OtBm-orSbVbdJ4C834Lj4IObV920q_GcaOu347tAcYGBRTToob4bQNf9oulMS63jVk8tlw0HYl0UWQYwi7wz6dzBOnOWs1gcb1pp3GNUvFymnzD9NzKXJA730oSIXag0yal1vuOnd4z7ohLZ8rJOujpQkTcN5v5SyJy-UD2wFBc5CyWhn4QV9JQv"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center px-gutter pt-xl pb-xl mt-16">
+<div class="w-full max-w-[1440px] flex flex-col md:flex-row items-center justify-center gap-xl">
+<!-- Left Branding Side (Asymmetric Layout) -->
+<div class="hidden lg:flex flex-col w-1/2 pr-xl space-y-md">
+<h1 class="font-display-lg text-display-lg text-on-background">Elevate your <span class="text-primary-container">career trajectory</span>.</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                    Join the elite network connecting top-tier academic talent with global corporate leaders. Your journey to professional excellence starts here.
+                </p>
+<div class="pt-md flex flex-col space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface">Verified Listings</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Exclusive access to Tier-1 companies.</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface">Placement Analytics</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time tracking of your applications.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Register Card -->
+<div class="w-full max-w-md bg-white border border-slate-200 rounded-xl p-lg container-shadow">
+<div class="mb-xl">
+<h2 class="font-headline-md text-headline-md text-slate-900">Create Account</h2>
+<p class="font-body-sm text-body-sm text-slate-500 mt-1">Register to start your placement journey</p>
+</div>
+<form class="space-y-md">
+<!-- Name Field -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-slate-600 uppercase" for="name">Full Name</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 text-body-md focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all placeholder:text-slate-400" id="name" placeholder="John Doe" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" data-icon="person">person</span>
+</div>
+</div>
+<!-- Email Field -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-slate-600 uppercase" for="email">Email Address</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 text-body-md focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all placeholder:text-slate-400" id="email" placeholder="student@university.edu" type="email"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" data-icon="mail">mail</span>
+</div>
+</div>
+<!-- Password Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Password Field -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-slate-600 uppercase" for="password">Password</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 text-body-md focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all placeholder:text-slate-400" id="password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" data-icon="lock">lock</span>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-slate-600 uppercase" for="confirm_password">Confirm</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 text-body-md focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all placeholder:text-slate-400" id="confirm_password" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" data-icon="shield">shield</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm pt-sm">
+<input class="w-4 h-4 rounded border-slate-300 text-primary-container focus:ring-primary-container" id="terms" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-slate-600" for="terms">
+                            I agree to the <a class="text-primary-container font-semibold hover:underline" href="#">Terms of Service</a>
+</label>
+</div>
+<!-- Primary Button -->
+<button class="w-full bg-primary-container text-white py-3.5 rounded-lg font-title-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-sm mt-md" type="submit">
+                        Register
+                        <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Link -->
+<div class="mt-xl text-center">
+<p class="font-body-sm text-body-sm text-slate-500">
+                        Already have an account? 
+                        <a class="text-primary-container font-bold hover:underline ml-1" href="#">Sign in</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Decorative Canvas Elements -->
+<div class="fixed bottom-0 left-0 w-full h-[265px] bg-gradient-to-t from-slate-100/50 to-transparent pointer-events-none -z-10"></div>
+<div class="fixed top-[20%] right-[10%] w-64 h-64 bg-primary-container opacity-[0.02] rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="fixed bottom-[10%] left-[5%] w-96 h-96 bg-secondary-container opacity-[0.03] rounded-full blur-3xl pointer-events-none -z-10"></div>
+</body></html>
