@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | Placement Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../js/auth-guard.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -161,57 +162,18 @@
                 <!-- Upcoming Events -->
                 <div class="space-y-6">
                     <div class="bg-primary p-8 rounded-3xl text-white shadow-xl shadow-primary/20 relative overflow-hidden">
-                        <h3 class="text-xl font-black mb-6 relative z-10">Upcoming Drives</h3>
-                        <div class="space-y-6 relative z-10">
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-white/10 rounded-2xl flex flex-col items-center justify-center shrink-0">
-                                    <span class="text-xs font-black">24</span>
-                                    <span class="text-[8px] uppercase font-bold">OCT</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold">Tesla Automation</p>
-                                    <p class="text-xs text-white/60">Aptitude Test • 10:00 AM</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-white/10 rounded-2xl flex flex-col items-center justify-center shrink-0">
-                                    <span class="text-xs font-black">28</span>
-                                    <span class="text-[8px] uppercase font-bold">OCT</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold">Netflix Design</p>
-                                    <p class="text-xs text-white/60">Portfolio Review • 02:00 PM</p>
-                                </div>
-                            </div>
+                        <h3 class="text-xl font-black mb-6 relative z-10">Upcoming Schedule</h3>
+                        <div id="admin-events-container" class="space-y-6 relative z-10">
+                            <div class="text-xs text-white/60 italic">Fetch drive deadlines to see schedule...</div>
                         </div>
-                        <button class="w-full mt-8 py-3 bg-white text-primary rounded-xl font-bold hover:bg-slate-100 transition-all">Full Calendar</button>
+                        <button onclick="window.location.href='manage-jobs.html'" class="w-full mt-8 py-3 bg-white text-primary rounded-xl font-bold hover:bg-slate-100 transition-all">View All Drives</button>
                         <span class="material-symbols-outlined absolute -right-8 -bottom-8 text-[120px] opacity-5">event</span>
                     </div>
 
                     <div class="card p-6">
-                        <h3 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4">Placement Progress</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-2">
-                                    <span class="text-slate-500">B.Tech CSE</span>
-                                    <span class="text-primary">85%</span>
-                                </div>
-                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 85%"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-2">
-                                    <span class="text-slate-500">B.Tech IT</span>
-                                    <span class="text-primary">72%</span>
-                                </div>
-                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 72%"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-2">
-                                    <span class="text-slate-500">B.Tech ECE</span>
-                                    <span class="text-primary">48%</span>
-                                </div>
-                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 48%"></div></div>
-                            </div>
+                        <h3 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4">Live Insights</h3>
+                        <div id="branch-progress-container" class="space-y-4">
+                            <div class="text-xs text-slate-500 italic">Analytical data will appear as students apply.</div>
                         </div>
                     </div>
                 </div>
@@ -240,6 +202,10 @@
                 const recent = applicants.slice(-5).reverse();
 
                 recent.forEach(app => {
+                    const studentName = app.student ? app.student.name : 'Unknown';
+                    const studentEmail = app.student ? app.student.email : 'N/A';
+                    const jobRole = app.job ? app.job.role : 'N/A';
+
                     const statusClass = app.status === 'Rejected' ? 'status-rejected' : 
                                       app.status === 'Selected' ? 'status-selected' :
                                       app.status === 'Shortlisted' ? 'status-shortlisted' : 
@@ -250,15 +216,15 @@
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
                                     <div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-                                        <img src="https://ui-avatars.com/api/?name=${app.student_name}&background=random">
+                                        <img src="https://ui-avatars.com/api/?name=${studentName}&background=random">
                                     </div>
                                     <div>
-                                        <p class="font-bold text-slate-900 text-sm">${app.student_name}</p>
-                                        <p class="text-[10px] text-slate-400">${app.student_email}</p>
+                                        <p class="font-bold text-slate-900 text-sm">${studentName}</p>
+                                        <p class="text-[10px] text-slate-400">${studentEmail}</p>
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 text-sm font-semibold text-slate-600">${app.job_role}</td>
+                            <td class="px-6 py-4 text-sm font-semibold text-slate-600">${jobRole}</td>
                             <td class="px-6 py-4">
                                 <span class="status-pill ${statusClass}">${app.status}</span>
                             </td>

@@ -6,6 +6,7 @@
     <title>Job Listings | Campus Placement Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="js/auth-guard.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -135,14 +136,10 @@
                     <!-- Jobs will be loaded here -->
                 </div>
 
-                <!-- Pagination -->
-                <div class="flex items-center justify-center gap-2 pt-10">
+                <!-- Pagination (Hidden for now as we load all jobs) -->
+                <div id="pagination-container" class="hidden items-center justify-center gap-2 pt-10">
                     <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-primary transition-all"><span class="material-symbols-outlined">chevron_left</span></button>
                     <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-white font-bold">1</button>
-                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all font-bold">2</button>
-                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all font-bold">3</button>
-                    <span class="px-2 text-slate-400">...</span>
-                    <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all font-bold">12</button>
                     <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-primary transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
                 </div>
             </div>
