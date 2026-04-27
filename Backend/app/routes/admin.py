@@ -19,6 +19,14 @@ def create_new_job(
     """Create job postings"""
     return job_service.create_job(db, job_in=job_in)
 
+@router.get("/jobs", response_model=List[JobOut])
+def list_jobs(
+    db: Session = Depends(get_db),
+    current_admin: User = Depends(get_current_active_admin)
+):
+    """View all jobs"""
+    return job_service.get_jobs(db)
+
 @router.get("/jobs/{job_id}/applicants", response_model=List[ApplicationOut])
 def get_job_applicants(
     job_id: int,

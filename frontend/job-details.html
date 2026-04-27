@@ -6,6 +6,7 @@
     <title>Job Details | Campus Placement Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="js/auth-guard.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -104,45 +105,7 @@
                         </div>
                     </section>
 
-                    <section>
-                        <h2 class="text-2xl font-black text-slate-900 mb-6 flex items-center gap-3">
-                            <span class="w-2 h-8 bg-blue-400 rounded-full"></span>
-                            Responsibilities
-                        </h2>
-                        <ul class="space-y-4 list-none">
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-                                <span class="text-slate-600">Design and implement scalable, resilient, and secure cloud architectures for global scale.</span>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-                                <span class="text-slate-600">Collaborate with cross-functional teams to define technical requirements and roadmaps.</span>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-                                <span class="text-slate-600">Provide technical guidance and best practices to customers and internal teams.</span>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-                                <span class="text-slate-600">Stay up-to-date with latest industry trends and cloud technologies.</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-black text-slate-900 mb-6 flex items-center gap-3">
-                            <span class="w-2 h-8 bg-amber-400 rounded-full"></span>
-                            Required Skills
-                        </h2>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-6 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold shadow-sm">Kubernetes</span>
-                            <span class="px-6 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold shadow-sm">Docker</span>
-                            <span class="px-6 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold shadow-sm">Python / Go</span>
-                            <span class="px-6 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold shadow-sm">Microservices</span>
-                            <span class="px-6 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold shadow-sm">Terraform</span>
-                            <span class="px-6 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold shadow-sm">Clean Code</span>
-                        </div>
-                    </section>
+                    <!-- Dynamic content loaded from description -->
                 </div>
 
                 <!-- Sidebar Info -->
@@ -170,30 +133,9 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hidden">
                         <h3 class="text-xl font-bold text-slate-900 mb-6">Related Postings</h3>
-                        <div class="space-y-6">
-                            <a href="#" class="flex items-center gap-4 group">
-                                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center shrink-0 border border-slate-100"><img src="https://logo.clearbit.com/amazon.com" class="w-8 h-8 object-contain"></div>
-                                <div>
-                                    <p class="font-bold text-slate-900 group-hover:text-primary transition-colors">SDE I (Backend)</p>
-                                    <p class="text-xs text-slate-500">18-22 LPA • Amazon</p>
-                                </div>
-                            </a>
-                            <a href="#" class="flex items-center gap-4 group">
-                                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center shrink-0 border border-slate-100"><img src="https://logo.clearbit.com/microsoft.com" class="w-8 h-8 object-contain"></div>
-                                <div>
-                                    <p class="font-bold text-slate-900 group-hover:text-primary transition-colors">Software Engineer</p>
-                                    <p class="text-xs text-slate-500">20-25 LPA • Microsoft</p>
-                                </div>
-                            </a>
-                            <a href="#" class="flex items-center gap-4 group">
-                                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center shrink-0 border border-slate-100"><img src="https://logo.clearbit.com/meta.com" class="w-8 h-8 object-contain"></div>
-                                <div>
-                                    <p class="font-bold text-slate-900 group-hover:text-primary transition-colors">Product Designer</p>
-                                    <p class="text-xs text-slate-500">15-18 LPA • Meta</p>
-                                </div>
-                            </a>
+                        <div id="related-postings-container" class="space-y-6">
                         </div>
                     </div>
                 </div>

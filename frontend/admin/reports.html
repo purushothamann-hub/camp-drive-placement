@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placement Analytics | Placement Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../js/auth-guard.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -43,44 +44,29 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="card p-8">
                     <h3 class="text-lg font-black text-slate-900 mb-8">Offer Distribution by Package</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">20+ LPA</span><span class="text-primary">12%</span></div>
-                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 12%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">12 - 20 LPA</span><span class="text-primary">28%</span></div>
-                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 28%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">8 - 12 LPA</span><span class="text-primary">45%</span></div>
-                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 45%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2"><span class="text-slate-500">Below 8 LPA</span><span class="text-primary">15%</span></div>
-                            <div class="h-3 bg-slate-100 rounded-full overflow-hidden"><div class="h-full bg-primary" style="width: 15%"></div></div>
-                        </div>
+                    <div id="distribution-container" class="space-y-6">
+                        <div class="text-sm text-slate-500 italic">Analytical distribution will appear as offers are released.</div>
                     </div>
                 </div>
 
                 <div class="card p-8 bg-primary text-white shadow-xl shadow-primary/20">
                     <h3 class="text-lg font-black mb-8">Recruitment Summary</h3>
-                    <div class="grid grid-cols-2 gap-8">
+                    <div id="summary-grid" class="grid grid-cols-2 gap-8">
                         <div>
                             <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Total Offers</p>
-                            <p class="text-4xl font-black">3,412</p>
+                            <p id="report-total-offers" class="text-4xl font-black">0</p>
                         </div>
                         <div>
                             <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Unique Companies</p>
-                            <p class="text-4xl font-black">128</p>
+                            <p id="report-unique-companies" class="text-4xl font-black">0</p>
                         </div>
                         <div>
                             <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Highest CTC</p>
-                            <p class="text-4xl font-black">54 LPA</p>
+                            <p id="report-highest-ctc" class="text-4xl font-black">---</p>
                         </div>
                         <div>
                             <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">Placement %</p>
-                            <p class="text-4xl font-black">82.4%</p>
+                            <p id="report-placement-rate" class="text-4xl font-black">0%</p>
                         </div>
                     </div>
                     <div class="mt-10 p-4 bg-white/10 rounded-2xl border border-white/10">
@@ -91,13 +77,8 @@
 
             <div class="card p-8">
                 <h3 class="text-lg font-black text-slate-900 mb-6">Top Recruiting Companies</h3>
-                <div class="flex flex-wrap gap-10 justify-between items-center opacity-60 grayscale hover:grayscale-0 transition-all">
-                    <img src="https://logo.clearbit.com/google.com" class="h-10 object-contain">
-                    <img src="https://logo.clearbit.com/microsoft.com" class="h-10 object-contain">
-                    <img src="https://logo.clearbit.com/amazon.com" class="h-10 object-contain">
-                    <img src="https://logo.clearbit.com/meta.com" class="h-10 object-contain">
-                    <img src="https://logo.clearbit.com/tesla.com" class="h-10 object-contain">
-                    <img src="https://logo.clearbit.com/netflix.com" class="h-10 object-contain">
+                <div id="company-grid" class="flex flex-wrap gap-10 justify-between items-center opacity-60">
+                    <div class="text-sm text-slate-400">Recruiting partners will appear here.</div>
                 </div>
             </div>
         </main>

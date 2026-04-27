@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applicants List | Placement Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../js/auth-guard.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -82,9 +83,9 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- Pagination -->
-                <div class="p-6 bg-slate-50/30 border-t border-slate-100 flex items-center justify-between">
-                    <p class="text-xs font-bold text-slate-400 uppercase">Showing 1-10 of 4,892</p>
+                <!-- Pagination (Hidden for now) -->
+                <div id="pagination-container" class="hidden p-6 bg-slate-50/30 border-t border-slate-100 items-center justify-between">
+                    <p id="pagination-info" class="text-xs font-bold text-slate-400 uppercase">Showing applicants</p>
                     <div class="flex gap-2">
                         <button class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 transition-all">Previous</button>
                         <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/10">Next</button>
@@ -113,6 +114,11 @@
                 body.innerHTML = '';
 
                 applicants.forEach(app => {
+                    const studentName = app.student ? app.student.name : 'Unknown';
+                    const studentEmail = app.student ? app.student.email : 'N/A';
+                    const jobRole = app.job ? app.job.role : 'N/A';
+                    const cgpa = app.student ? app.student.cgpa : 'N/A';
+
                     const statusClass = app.status === 'Rejected' ? 'status-rejected' : 
                                       app.status === 'Selected' ? 'status-selected' :
                                       app.status === 'Shortlisted' ? 'status-shortlisted' : 
@@ -123,33 +129,32 @@
                             <td class="px-6 py-6">
                                 <div class="flex items-center gap-4">
                                     <div class="w-12 h-12 rounded-2xl bg-slate-100 overflow-hidden border border-white shadow-sm shrink-0">
-                                        <img src="https://ui-avatars.com/api/?name=${app.student_name}&background=random" class="w-full h-full object-cover">
+                                        <img src="https://ui-avatars.com/api/?name=${studentName}&background=random" class="w-full h-full object-cover">
                                     </div>
                                     <div>
-                                        <p class="font-black text-slate-900 leading-none mb-1">${app.student_name}</p>
-                                        <p class="text-[10px] font-bold text-slate-400 uppercase">${app.student_email}</p>
+                                        <p class="font-black text-slate-900 leading-none mb-1">${studentName}</p>
+                                        <p class="text-[10px] font-bold text-slate-400 uppercase">${studentEmail}</p>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-6">
-                                <p class="text-sm font-bold text-slate-900">N/A CGPA</p>
+                                <p class="text-sm font-bold text-slate-900">${cgpa} CGPA</p>
                                 <p class="text-[10px] font-black text-slate-400 uppercase">Student</p>
                             </td>
                             <td class="px-6 py-6">
-                                <select onchange="updateStatus(${app.job_id}, '${app.student_email}', this.value)" class="status-pill ${statusClass} bg-transparent border-none focus:ring-0 cursor-pointer">
-                                    <option value="Pending" ${app.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                <select onchange="updateStatus(${app.id}, this.value)" class="status-pill ${statusClass} bg-transparent border-none focus:ring-0 cursor-pointer">
+                                    <option value="Applied" ${app.status === 'Applied' ? 'selected' : ''}>Applied</option>
                                     <option value="Shortlisted" ${app.status === 'Shortlisted' ? 'selected' : ''}>Shortlisted</option>
                                     <option value="Selected" ${app.status === 'Selected' ? 'selected' : ''}>Selected</option>
                                     <option value="Rejected" ${app.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
                                 </select>
                             </td>
                             <td class="px-6 py-6">
-                                <p class="text-sm font-bold text-slate-600 truncate max-w-[150px]">${app.job_role}</p>
+                                <p class="text-sm font-bold text-slate-600 truncate max-w-[150px]">${jobRole}</p>
                             </td>
                             <td class="px-6 py-6">
                                 <div class="flex justify-center gap-2">
                                     <button onclick="window.location.href='../job-details.html?id=${app.job_id}'" class="w-9 h-9 flex items-center justify-center bg-slate-100 text-slate-400 rounded-lg hover:text-primary transition-all"><span class="material-symbols-outlined text-lg">visibility</span></button>
-                                    <button class="w-9 h-9 flex items-center justify-center bg-slate-100 text-slate-400 rounded-lg hover:text-primary transition-all"><span class="material-symbols-outlined text-lg">description</span></button>
                                 </div>
                             </td>
                         </tr>
@@ -162,13 +167,14 @@
             }
         }
 
-        async function updateStatus(jobId, studentEmail, status) {
+        async function updateStatus(applicationId, status) {
             try {
-                await api.adminUpdateApplicationStatus(jobId, studentEmail, status);
+                await api.adminUpdateApplicationStatus(applicationId, status);
                 alert('Status updated successfully');
                 loadApplicants();
             } catch (error) {
                 alert(error.message);
+                loadApplicants(); // Reset on error
             }
         }
 

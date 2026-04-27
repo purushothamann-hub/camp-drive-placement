@@ -34,7 +34,10 @@ const api = {
     logout() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        window.location.href = '/frontend/index.html';
+        // Redirect to index.html relative to the current folder depth
+        const path = window.location.pathname;
+        const isSubDir = path.includes('/admin/');
+        window.location.href = isSubDir ? '../index.html' : 'index.html';
     },
 
     getToken() {
